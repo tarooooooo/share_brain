@@ -66,10 +66,7 @@ module Public
       protected
 
       def configure_sign_up_params
-        devise_parameter_sanitizer.permit(:sign_up, keys: [
-          :nickname,
-          :icon_image
-        ])
+        devise_parameter_sanitizer.permit(:sign_up, except: [:password])
       end
     end
   end

@@ -9,6 +9,7 @@ devise_for :users, controllers: {
 
 devise_scope :user do
   get '/users/sign_out' => 'public/users/sessions#destroy'
+  patch "users/confirmation", to: "public/users/confirmations#confirm"
 end
 
 namespace :public, path: '/' do
