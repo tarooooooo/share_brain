@@ -1,0 +1,46 @@
+<!-- Main Sidebar Container -->
+<aside class="main-sidebar sidebar-dark-primary elevation-4">
+  <!-- Brand Logo -->
+  <%= link_to admin_root_path, class: 'brand-link' do %>
+    <%= image_tag 'main_icon/main_icon.svg', size: '40x40', alt: 'main_icon' %>
+    ShareBrain
+  <% end %>
+
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <!-- Sidebar user panel (optional) -->
+    <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+      <div class="info">
+        <%= link_to admin_root_path do %>
+          <%= current_admin_user&.name %>
+        <% end %>
+      </div>
+    </div>
+
+    <!-- Sidebar Menu -->
+    <nav class="mt-2">
+      <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+        <!-- Add icons to the links using the .nav-icon class
+             with font-awesome or any other icon font library -->
+        <li class="nav-item">
+          <%= link_to admin_root_path class: 'nav-link d-flex' do %>
+            <p>
+              ダッシュボード
+            </p>
+          <% end %>
+        </li>
+        <li class="nav-item">
+          <%= link_to admin_root_path class: 'nav-link d-flex' do %>
+            <p>
+              ダッシュボード
+            </p>
+          <% end %>
+        </li>
+
+        <%= cell('admin/side_nav').(:admin_users) %>
+      </ul>
+    </nav>
+    <!-- /.sidebar-menu -->
+  </div>
+  <!-- /.sidebar -->
+</aside>
