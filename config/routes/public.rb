@@ -14,4 +14,8 @@ end
 
 namespace :public, path: '/' do
   root 'top_page#show'
+
+  namespace :mypage do
+    root 'top_page#show'
+  end
 end

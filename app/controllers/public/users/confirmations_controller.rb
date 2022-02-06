@@ -43,6 +43,6 @@ class Public::Users::ConfirmationsController < Devise::ConfirmationsController
     end
 
     def confirmation_params
-      params.require(resource_name).permit(:password)
+      params.require(resource_name).permit(:password, :name, :icon_image)
     end
 end

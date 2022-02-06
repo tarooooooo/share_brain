@@ -66,7 +66,7 @@ module Public
       protected
 
       def configure_sign_up_params
-        devise_parameter_sanitizer.permit(:sign_up, except: [:password])
+        devise_parameter_sanitizer.permit(:sign_up, except: [:password, :name])
       end
     end
   end
