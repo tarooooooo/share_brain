@@ -6,6 +6,8 @@ devise_for :admin_users, path: :admin, controllers: {
 }
 namespace :admin do
   root 'dashboard#show'
+
+  resources :admin_users
 end
 
 devise_scope :admin_user do
