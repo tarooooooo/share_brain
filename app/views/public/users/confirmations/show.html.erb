@@ -13,6 +13,16 @@
     <%= f.password_field :password, autocomplete: "off" %>
   </div>
 
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :icon_image %>
+    <%= f.file_field :icon_image %>
+  </div>
+
   <div class="actions">
     <%= f.submit "Submit" %>
   </div>
