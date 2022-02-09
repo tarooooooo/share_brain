@@ -1,0 +1,27 @@
+.form-wrapper {
+  background-image: url("session_registration/rainbow.svg");
+  background-size: cover;
+  padding: 80px 20px 90px;
+}
+
+.form-horizontal {
+  padding: 40px 100px;
+  background-color: white;
+  border-radius: 40% 40% 50% 40%/30% 50% 50% 50%;
+}
+
+.heading{
+  display: block;
+  margin-bottom: 20px;
+  font-size: 30px;
+  border-bottom: 1px;
+  text-align: center;
+}
+
+.primary-form {
+  margin-bottom: 15px;
+}
+
+.primary-btn {
+  text-align: right;
+}
