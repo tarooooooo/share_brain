@@ -1,3 +1,28 @@
 // Place all the styles related to the public/top_page controller here.
 // They will automatically be included in application.scss.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+.faq {
+  max-width: 640px;
+  margin: 0 auto;
+  .faq_list {
+    list-style-type: none;
+    padding: 0;
+
+    li {
+      border-top: 1px solid silver;
+      padding: 15px 0;
+
+      &:last-child {
+        border-bottom: 1px solid silver;
+      }
+
+      .faq_list_question {
+        cursor: pointer;
+      }
+
+      .faq_list_answer {
+        display: none;
+      }
+    }
+  }
+}
