@@ -1,5 +1,6 @@
 module Public
   class BaseController < ApplicationController
-    before_action :check_registered_user
+    layout 'public'
+    # before_action :check_registered_user
   end
 end
