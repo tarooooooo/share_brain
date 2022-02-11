@@ -1,0 +1,57 @@
+// Place all the styles related to the public/base controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+a.link-text-white {
+  color: white;
+}
+
+.global_footer {
+  background-color: #333;
+  .footer_wrapper {
+    display: flex;
+    justify-content: space-between;
+    padding: 30px;
+    .footer_start {
+      display: flex;
+      flex-flow: column;
+      justify-content: space-between;
+      .footer_signature {
+        .footer_menu_logo_link {
+          color: white;
+          font-size: 40px;
+        }
+      }
+      .footer_copy_right {
+        color: white;
+      }
+    }
+    .footer_menu_container {
+      display: flex;
+
+      .footer_menu_list_container {
+        .footer_menu_list {
+          list-style-type: none;
+          padding: 0;
+          .footer_menu_title {
+            color: white;
+            font-size: 16px;
+            font-weight: 600;
+            line-height: 1.8;
+          }
+          .footer_menu_item {
+            width: 200px;
+            .footer_menu_link {
+              color: white;
+              display: inline-block;
+              font-size: 14px;
+              line-height: 1;
+              padding-top: 4px;
+              padding-bottom: 4px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
