@@ -26,3 +26,35 @@
     }
   }
 }
+
+#about_images{
+  .slick-prev {
+    left: 0;
+    z-index: 1;
+  }
+  .slick-next {
+    right: 0;
+  }
+
+  .slick-prev:before, .slick-next:before {
+    color: #000;/*黒にする*/
+    opacity: 1;/*デフォルトは.75が指定されている*/
+  }
+
+  .prev_icon{
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    transform: translate(0,-50%);
+    width: 30px;
+    z-index: 1;
+  }
+  .next_icon{
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translate(0,-50%);
+    width: 30px;
+    z-index: 1;
+  }
+}
