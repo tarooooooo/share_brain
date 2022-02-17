@@ -1,9 +1,12 @@
+require("jquery")
 require("@rails/ujs").start()
 require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
-require("jquery")
+require('summernote/summernote-bs4.min')
+require('summernote-init')
 require("packs/public/top_page/show.js")
+require("packs/public/summernote.js")
 require("admin-lte");
 
 // This file is automatically compiled by Webpack, along with any other files

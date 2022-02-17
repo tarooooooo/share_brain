@@ -229,6 +229,9 @@ GEM
       rexml (~> 3.2, >= 3.2.5)
       rubyzip (>= 1.2.2)
     semantic_range (3.0.0)
+    simple_form (5.1.0)
+      actionpack (>= 5.2)
+      activemodel (>= 5.2)
     slim (4.1.0)
       temple (>= 0.7.6, < 0.9)
       tilt (>= 2.0.6, < 2.1)
@@ -241,6 +244,8 @@ GEM
       activesupport (>= 5.2)
       sprockets (>= 3.0.0)
     ssrf_filter (1.0.7)
+    summernote-rails (0.8.12.0)
+      railties (>= 3.1)
     temple (0.8.2)
     thor (1.2.1)
     tilt (2.0.10)
@@ -301,7 +306,9 @@ DEPENDENCIES
   sass-rails (>= 6)
   seed-fu
   selenium-webdriver
+  simple_form
   spring
+  summernote-rails
   turbolinks (~> 5)
   tzinfo-data
   web-console (>= 4.1.0)

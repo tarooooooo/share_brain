@@ -15,6 +15,8 @@ end
 namespace :public, path: '/' do
   root 'top_page#show'
 
+  resources :articles
+
   namespace :mypage do
     root 'top_page#show'
   end

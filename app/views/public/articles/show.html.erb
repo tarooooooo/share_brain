@@ -1,0 +1,9 @@
+<section class="articles articles-detail primary-page-padding">
+  <h3 class="c-title-article"><%= @article.title %></h3>
+  <div class="articles-detail_content">
+    <%= simple_format(@article.content) %>
+    <p class="articles-detail_date">
+      <%= l(@article.published_at.to_date) %>
+    </p>
+  </div>
+</section>

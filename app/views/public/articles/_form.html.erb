@@ -1,0 +1,13 @@
+<%= simple_form_for([:public, article]) do |f| %>
+  <div class="card-body">
+    <%= f.error_notification %>
+    <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+    <%= f.input :title %>
+    <%= f.input :content, input_html: { class: 'js-summernote' } %>
+    <%= f.input :published_at, html5: true %>
+
+    <div class="card-footer">
+      <%= f.submit class: 'btn btn-submit' %>
+    </div>
+  </div>
+<% end %>
