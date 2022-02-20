@@ -21,7 +21,7 @@
     justify-content: space-between;
 
     .articles-detail {
-      width: 950px;
+      width: 880px;
       background-color: white;
       margin-bottom: 50px;
       padding: 20px;
@@ -32,8 +32,19 @@
       }
     }
     .article-sidebar {
+      width: 100px;
       .dropdown-article-menu {
         display: none;
+        list-style: none;
+        padding: 0;
+        background-color: white;
+
+        .dropdown-article-item {
+          border: 1px solid #999999;
+          .article-link {
+            color: black;
+          }
+        }
       }
     }
   }

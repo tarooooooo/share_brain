@@ -1,0 +1,35 @@
+<section class='article-list-slider js-article-slider'>
+  <ul class="articles-list slider-wrapper">
+    <li class="article-list-item slider-slide">
+
+    </li>
+  </ul>
+  <div id="about_images">
+    <div class="about_image">
+      <%= image_tag 'main_icon/main_icon.svg', size: '200x200', alt: 'main_icon' %>
+    </div>
+    <div class="about_image">
+      <%= image_tag 'main_icon/main_icon.svg', size: '200x200', alt: 'main_icon' %>
+    </div>
+    <div class="about_image">
+      <%= image_tag 'main_icon/main_icon.svg', size: '200x200', alt: 'main_icon' %>
+    </div>
+    <div class="about_image">
+      <%= image_tag 'main_icon/main_icon.svg', size: '200x200', alt: 'main_icon' %>
+    </div>
+  </div>
+  <script type="text/javascript" charset="utf-8">
+      $(document).on('turbolinks:load', function () {
+          $('#about_images').slick({
+              arrows: true, //矢印非表示
+              autoplay: false, //自動でスクロール
+              slidesToShow: 2, //表示するスライドの数
+              swipe: true, // 操作による切り替えはさせない
+              accessibility: true,
+              dots: true,
+              pauseOnFocus: false, //スライダーをフォーカスした時にスライドを停止させるか
+              pauseOnHover: false, //スライダーにマウスホバーした時にスライドを停止させるか
+          });
+      });
+  </script>
+</section>

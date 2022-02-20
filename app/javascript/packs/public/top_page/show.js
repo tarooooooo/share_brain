@@ -6,6 +6,6 @@ $(function(){
 
 $(function(){
     $('.action-item').click(function () {
-        $('.dropdown-article-menu').slideToggle(300);
+        $('.dropdown-article-menu').slideToggle(100);
     });
 });
