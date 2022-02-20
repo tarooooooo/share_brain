@@ -2,9 +2,10 @@
   <div class="card-body">
     <%= f.error_notification %>
     <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
-    <%= f.input :title %>
-    <%= f.input :content, input_html: { class: 'js-summernote' } %>
-    <%= f.input :published_at, html5: true %>
+    <%= f.input :title, placeholder: 'タイトル', label: false %>
+    <%= f.input :content, placeholder: '本文：Markdownで記述できます', label: false %>
+    <%= f.input :published_at, html5: true, placeholder: '本文：Markdownで記述できます' %>
+    <%= f.input :publish_status, selected: 'published', placeholder: '本文：Markdownで記述できます' %>
 
     <div class="card-footer">
       <%= f.submit class: 'btn btn-submit' %>

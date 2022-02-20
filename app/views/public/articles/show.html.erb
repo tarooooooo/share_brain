@@ -1,9 +1,19 @@
-<section class="articles articles-detail primary-page-padding">
-  <h3 class="c-title-article"><%= @article.title %></h3>
-  <div class="articles-detail_content">
-    <%= simple_format(@article.content) %>
-    <p class="articles-detail_date">
-      <%= l(@article.published_at.to_date) %>
-    </p>
-  </div>
-</section>
+<div class="articles-container container-fluid">
+  <h3 class="article-title"><%= @article.title %></h3>
+  <section class="articles">
+    <div class="articles-detail">
+      <div class="article-item">
+        <div class="published_at">
+          公開日時：<%= l(@article.published_at, format: :long) %>
+        </div>
+        <div class="writer_name">
+          投稿者：<%= @article.writer_name %>
+        </div>
+      </div>
+      <div class="article-content">
+        <%= markdown(@article.content).html_safe %>
+      </div>
+    </div>
+    <%= cell('public/article', @article).(:show) %>
+  </section>
+</div>

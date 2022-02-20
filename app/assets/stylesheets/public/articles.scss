@@ -1,3 +1,59 @@
 // Place all the styles related to the public/articles controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+//show
+.articles-container {
+  max-width: 1000px;
+
+  .article-title {
+    font-size: 50px;
+    text-align: center;
+    margin: 30px 0 30px 0;
+  }
+
+  .article_item {
+    text-align: right;
+  }
+
+  .articles {
+    display: flex;
+    justify-content: space-between;
+
+    .articles-detail {
+      width: 950px;
+      background-color: white;
+      margin-bottom: 50px;
+      padding: 20px;
+
+      .article-item {
+        text-align: right;
+        color: #999999;
+      }
+    }
+    .article-sidebar {
+      .dropdown-article-menu {
+        display: none;
+      }
+    }
+  }
+}
+
+#article_content {
+  height: 500px;
+}
+
+//index
+.articles_box {
+  max-width: 1000px;
+  margin: 50px 0 50px 0;
+
+  .articles_list {
+    display: grid;
+    gap: 16px;
+
+    .article_card {
+      background-color: white;
+    }
+  }
+}

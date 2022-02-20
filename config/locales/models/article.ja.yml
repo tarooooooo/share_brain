@@ -1,0 +1,19 @@
+---
+ja:
+  activerecord:
+    models:
+      article: 記事
+    attributes:
+      article:
+        writer: 投稿者
+        wirter_id: 投稿者
+        title: タイトル
+        content: 本文
+        published_at: 公開日
+        publish_status: 公開ステータス
+  enums:
+    article:
+      publish_status:
+        draft: 未公開
+        published: 公開
+        close: 取り下げ

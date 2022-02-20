@@ -2,12 +2,19 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
+body.public {
+  background-color: #f0f0f0;
+}
+
 a.link-text-white {
   color: white;
 }
 
 .global_footer {
   background-color: #333;
+  //position: absolute;
+  //bottom: 0;
+  width: 100%;
   .footer_wrapper {
     display: flex;
     justify-content: space-between;

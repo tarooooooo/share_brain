@@ -1,4 +1,4 @@
-class Public::ArticlesController < ApplicationController
+class Public::ArticlesController < ::Public::BaseController
   before_action :set_article, only: [:show, :edit, :update, :destroy]
 
   def index
