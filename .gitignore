@@ -43,3 +43,5 @@ yarn-debug.log*
 
 # docker
 /docker_volumes
+
+vendor/bundle
