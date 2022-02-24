@@ -4,6 +4,7 @@ require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
 require("packs/public/top_page/show.js")
+require("packs/public/articles/show.js")
 require("packs/slick.js")
 require("admin-lte");
 

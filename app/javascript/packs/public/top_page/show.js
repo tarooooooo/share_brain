@@ -3,9 +3,3 @@ $(function(){
         $(this).next().slideToggle();
     });
 });
-
-$(function(){
-    $('.action-item').click(function () {
-        $('.dropdown-article-menu').slideToggle(100);
-    });
-});

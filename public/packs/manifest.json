@@ -1,29 +1,37 @@
 {
-  "application.js": "/packs/js/application-05146cb51c0a97338aad.js",
-  "application.js.map": "/packs/js/application-05146cb51c0a97338aad.js.map",
+  "application.js": "/packs/js/application-c892fe07749ef0a37e29.js",
+  "application.js.map": "/packs/js/application-c892fe07749ef0a37e29.js.map",
   "entrypoints": {
     "application": {
       "js": [
-        "/packs/js/application-05146cb51c0a97338aad.js"
+        "/packs/js/application-c892fe07749ef0a37e29.js"
       ],
       "js.map": [
-        "/packs/js/application-05146cb51c0a97338aad.js.map"
+        "/packs/js/application-c892fe07749ef0a37e29.js.map"
+      ]
+    },
+    "public/articles/show": {
+      "js": [
+        "/packs/js/public/articles/show-c5550dcda68ddaf0972c.js"
+      ],
+      "js.map": [
+        "/packs/js/public/articles/show-c5550dcda68ddaf0972c.js.map"
+      ]
+    },
+    "public/summernote": {
+      "js": [
+        "/packs/js/public/summernote-12f6ba2001e3898dc6d5.js"
+      ],
+      "js.map": [
+        "/packs/js/public/summernote-12f6ba2001e3898dc6d5.js.map"
       ]
     },
     "public/top_page/show": {
       "js": [
-        "/packs/js/public/top_page/show-b23f9265574e3bd2d4d8.js"
+        "/packs/js/public/top_page/show-31c085c2f7e46777d88d.js"
       ],
       "js.map": [
-        "/packs/js/public/top_page/show-b23f9265574e3bd2d4d8.js.map"
-      ]
-    },
-    "slick": {
-      "js": [
-        "/packs/js/slick-567d586b8661c3d3d4d2.js"
-      ],
-      "js.map": [
-        "/packs/js/slick-567d586b8661c3d3d4d2.js.map"
+        "/packs/js/public/top_page/show-31c085c2f7e46777d88d.js.map"
       ]
     },
     "slick": {
@@ -35,6 +43,10 @@
       ]
     }
   },
+  "public/articles/show.js": "/packs/js/public/articles/show-c5550dcda68ddaf0972c.js",
+  "public/articles/show.js.map": "/packs/js/public/articles/show-c5550dcda68ddaf0972c.js.map",
+  "public/summernote.js": "/packs/js/public/summernote-12f6ba2001e3898dc6d5.js",
+  "public/summernote.js.map": "/packs/js/public/summernote-12f6ba2001e3898dc6d5.js.map",
   "public/top_page/show.js": "/packs/js/public/top_page/show-31c085c2f7e46777d88d.js",
   "public/top_page/show.js.map": "/packs/js/public/top_page/show-31c085c2f7e46777d88d.js.map",
   "slick.js": "/packs/js/slick-567d586b8661c3d3d4d2.js",
