@@ -1,5 +1,6 @@
 class Public::ArticlesController < ::Public::BaseController
   before_action :set_article, only: [:show, :edit, :update, :destroy]
+  before_action :authorize
 
   def index
     @articles = Article.all

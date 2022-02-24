@@ -2,7 +2,7 @@
 
 module Public
   class ArticleCell < ::Public::BaseCell
-    def show
+    def edit
       render
     end
   end

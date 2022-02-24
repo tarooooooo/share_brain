@@ -68,3 +68,5 @@ gem 'rails-i18n'
 gem 'enum_help'
 gem 'redcarpet'
 gem 'coderay'
+gem "pundit"
+gem 'aasm'
