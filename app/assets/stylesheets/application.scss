@@ -19,7 +19,6 @@
 
 /* リセットCSS */
 * {
-  list-style: none;
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -27,4 +26,8 @@
 
 p {
   margin: 0;
+}
+
+pre {
+  background-color: #DADADA;
 }

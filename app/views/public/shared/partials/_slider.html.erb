@@ -1,34 +1,26 @@
 <section class='article-list-slider js-article-slider'>
-  <ul class="articles-list slider-wrapper">
-    <li class="article-list-item slider-slide">
-
-    </li>
-  </ul>
-  <div id="about_images">
-    <div class="about_image">
-      <%= image_tag 'main_icon/main_icon.svg', size: '200x200', alt: 'main_icon' %>
-    </div>
-    <div class="about_image">
-      <%= image_tag 'main_icon/main_icon.svg', size: '200x200', alt: 'main_icon' %>
-    </div>
-    <div class="about_image">
-      <%= image_tag 'main_icon/main_icon.svg', size: '200x200', alt: 'main_icon' %>
-    </div>
-    <div class="about_image">
-      <%= image_tag 'main_icon/main_icon.svg', size: '200x200', alt: 'main_icon' %>
-    </div>
+  <div id="top-page-articles">
+    <% articles.each do |article| %>
+      <div class="article_card card">
+        <div class="card-body">
+          <p class="card-title"><%= article.title %></p>
+          <p class="card-text"><%= article.writer_name %></p>
+          <p class="card-text"><%= l(article.published_at, format: :long) %></p>
+        </div>
+      </div>
+    <% end %>
   </div>
   <script type="text/javascript" charset="utf-8">
       $(document).on('turbolinks:load', function () {
-          $('#about_images').slick({
-              arrows: true, //矢印非表示
-              autoplay: false, //自動でスクロール
-              slidesToShow: 2, //表示するスライドの数
-              swipe: true, // 操作による切り替えはさせない
+          $('#top-page-articles').slick({
+              arrows: true,
+              autoplay: false,
+              slidesToShow: 4,
+              swipe: true,
               accessibility: true,
               dots: true,
-              pauseOnFocus: false, //スライダーをフォーカスした時にスライドを停止させるか
-              pauseOnHover: false, //スライダーにマウスホバーした時にスライドを停止させるか
+              pauseOnFocus: false,
+              pauseOnHover: false
           });
       });
   </script>

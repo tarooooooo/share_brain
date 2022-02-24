@@ -1,3 +1,5 @@
 class Public::TopPageController < ::Public::BaseController
-  def show; end
+  def show
+    @articles = Article.all
+  end
 end
