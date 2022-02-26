@@ -9,6 +9,12 @@
         <div class="writer_name">
           投稿者：<%= @article.writer_name %>
         </div>
+        <div class="knowledge_tag">
+          タグ：
+          <% @knowledge_tags.each do |knowledge_tag| %>
+            <%= knowledge_tag.name %>
+          <% end %>
+        </div>
       </div>
       <div class="article-content">
         <%= markdown(@article.content).html_safe %>

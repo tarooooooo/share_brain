@@ -8,6 +8,7 @@ namespace :admin do
   root 'dashboard#show'
 
   resources :admin_users
+  resources :knowledge_tags
 end
 
 devise_scope :admin_user do

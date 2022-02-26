@@ -1,0 +1,42 @@
+<div class="container-fluid">
+  <!-- /.row -->
+  <div class="row">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-header">
+          <h3 class="card-title">タグ一覧</h3>
+
+          <div class="card-tools">
+            <%= link_to '作成', new_admin_knowledge_tag_path, class:'btn btn-primary' %>
+          </div>
+        </div>
+        <!-- /.card-header -->
+        <div class="card-body table-responsive p-0" style="height: 300px;">
+          <table class="table table-head-fixed text-nowrap">
+            <thead>
+            <tr>
+              <th>ID</th>
+              <th>タグ名</th>
+              <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <% @knowledge_tags.each do |knowledge_tag| %>
+              <tr>
+                <td><%= knowledge_tag.id %></td>
+                <td><%= knowledge_tag.name %></td>
+                <td>
+                  <%= link_to '編集', edit_admin_knowledge_tag_path(knowledge_tag), class:'btn btn-info' %>
+                  <%= link_to '削除', admin_knowledge_tag_path(knowledge_tag), method: :delete, class:'btn btn-danger' %>
+                </td>
+              </tr>
+            <% end %>
+            </tbody>
+          </table>
+        </div>
+        <!-- /.card-body -->
+      </div>
+      <!-- /.card -->
+    </div>
+  </div>
+</div>
