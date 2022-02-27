@@ -1,0 +1,20 @@
+// Place all the styles related to the public/paid_articles controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+.paid_article_infomation_modal {
+  width: 100px;
+  .dropdown-paid-article-menu {
+    display: none;
+    list-style: none;
+    padding: 0;
+    background-color: white;
+
+    .dropdown-paid-article-item {
+      border: 1px solid #999999;
+      .paid-article-link {
+        color: black;
+      }
+    }
+  }
+}

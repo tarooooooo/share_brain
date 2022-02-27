@@ -5,6 +5,7 @@ require("@rails/activestorage").start()
 require("channels")
 require("packs/public/top_page/show.js")
 require("packs/public/articles/show.js")
+require("packs/public/paid_articles/infomation_modal.js")
 require("packs/slick.js")
 require("admin-lte");
 

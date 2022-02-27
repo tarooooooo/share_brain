@@ -1,0 +1,19 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  seller: one
+  title: MyString
+  content: MyText
+  price: 1
+  publish_status: 1
+  main_image: MyString
+  arrachment_file: MyString
+
+two:
+  seller: two
+  title: MyString
+  content: MyText
+  price: 1
+  publish_status: 1
+  main_image: MyString
+  arrachment_file: MyString
