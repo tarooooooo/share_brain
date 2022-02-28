@@ -3,9 +3,12 @@ class Public::ArticlesController < ::Public::BaseController
 
   def index
     @articles = Article.all
+
   end
 
-  def show; end
+  def show
+    @knowledge_tags = @article.knowledge_tags
+  end
 
   def new
     @article = Article.new
@@ -44,7 +47,7 @@ class Public::ArticlesController < ::Public::BaseController
 
   def article_params
     params.require(:article).permit(
-      :writer_id, :title, :content, :published_at, :publish_status, :deleted_at
+      :writer_id, :title, :content, :published_at, :publish_status, :deleted_at, knowledge_tag_ids: []
     )
   end
 end
