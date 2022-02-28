@@ -1,0 +1,19 @@
+<div class="paid_articles-container container-fluid">
+  <h3 class="paid_article-title"><%= @paid_article.title %></h3>
+  <section class="paid_articles">
+    <div class="paid_articles-detail">
+      <div class="paid_article-item">
+        <div class="published_at">
+          公開日時：<%= l(@paid_article.published_at, format: :long) %>
+        </div>
+        <div class="writer_name">
+          投稿者：<%= @paid_article.seller_name %>
+        </div>
+      </div>
+      <div class="paid_article-content">
+        <%= markdown(@paid_article.content).html_safe %>
+      </div>
+    </div>
+    <%= cell('public/paid_article', @paid_article).(:infomation_modal) %>
+  </section>
+</div>

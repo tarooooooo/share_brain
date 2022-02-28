@@ -17,3 +17,15 @@ User.create!(
   email: 'user1@mail.com',
   password: 'password',
 )
+
+KnowledgeTag.create!(
+  name: 'Ruby'
+)
+
+KnowledgeTag.create!(
+  name: 'PHP'
+)
+
+KnowledgeTag.create!(
+  name: 'Java'
+)

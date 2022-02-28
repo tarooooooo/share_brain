@@ -6,6 +6,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable, :confirmable
 
   has_many :articles, dependent: :restrict_with_error, foreign_key: :writer_id, inverse_of: :writer
+  has_many :paid_articles, dependent: :restrict_with_error, foreign_key: :seller_id, inverse_of: :seller
   private
     def password_required?
       super if confirmed?

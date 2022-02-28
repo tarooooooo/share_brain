@@ -5,5 +5,9 @@ module Admin
     def admin_users
       render
     end
+
+    def knowledge_tags
+      render
+    end
   end
 end
