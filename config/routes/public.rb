@@ -20,11 +20,10 @@ namespace :public, path: '/' do
     resources :paid_article_orders do
       collection do
         post :confirm
+        get :done
       end
     end
   end
-
-  get 'done', to: 'paid_article_orders#done'
 
   namespace :mypage do
     root 'top_page#show'

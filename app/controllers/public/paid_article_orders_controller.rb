@@ -1,6 +1,6 @@
 class Public::PaidArticleOrdersController < ::Public::BaseController
-  before_action :set_paid_article, only: [:new, :confirm, :create]
-  before_action :set_paid_article_order, only: [:new, :confirm, :create, :done]
+  before_action :set_paid_article, only: [:new, :confirm, :create, :done]
+  before_action :set_paid_article_order, only: [:new, :confirm, :create]
 
   def new; end
 
@@ -13,7 +13,7 @@ class Public::PaidArticleOrdersController < ::Public::BaseController
   def create
     render :new and return if params[:back]
     if @paid_article_order.save
-      redirect_to public_done_path
+      redirect_to done_public_paid_article_paid_article_orders_path(paid_artcle_id: @paid_article.id)
     else
       render :new
     end
