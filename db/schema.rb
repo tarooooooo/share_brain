@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_02_26_113402) do
+ActiveRecord::Schema.define(version: 2022_02_27_055307) do
 
   create_table "admin_users", charset: "utf8", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -53,6 +53,20 @@ ActiveRecord::Schema.define(version: 2022_02_26_113402) do
     t.index ["name"], name: "index_knowledge_tags_on_name", unique: true
   end
 
+  create_table "paid_articles", charset: "utf8", force: :cascade do |t|
+    t.bigint "seller_id", null: false
+    t.string "title", null: false
+    t.text "content", null: false
+    t.integer "price", default: 0, null: false
+    t.datetime "published_at"
+    t.integer "publish_status", default: 0, null: false
+    t.string "main_image", default: "0", null: false
+    t.string "attachment_file", default: "0"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["seller_id"], name: "index_paid_articles_on_seller_id"
+  end
+
   create_table "users", charset: "utf8", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -74,4 +88,5 @@ ActiveRecord::Schema.define(version: 2022_02_26_113402) do
   add_foreign_key "article_knowledge_tags", "articles"
   add_foreign_key "article_knowledge_tags", "knowledge_tags"
   add_foreign_key "articles", "users", column: "writer_id"
+  add_foreign_key "paid_articles", "users", column: "seller_id"
 end
