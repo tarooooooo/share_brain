@@ -25,6 +25,15 @@ ActiveRecord::Schema.define(version: 2022_02_27_092215) do
     t.index ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true
   end
 
+  create_table "article_knowledge_tags", charset: "utf8", force: :cascade do |t|
+    t.bigint "article_id", null: false
+    t.bigint "knowledge_tag_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["article_id"], name: "index_article_knowledge_tags_on_article_id"
+    t.index ["knowledge_tag_id"], name: "index_article_knowledge_tags_on_knowledge_tag_id"
+  end
+
   create_table "articles", charset: "utf8", force: :cascade do |t|
     t.bigint "writer_id", null: false, comment: "ユーザーID"
     t.string "title", null: false
@@ -35,6 +44,13 @@ ActiveRecord::Schema.define(version: 2022_02_27_092215) do
     t.datetime "updated_at", precision: 6, null: false
     t.datetime "deleted_at"
     t.index ["writer_id"], name: "index_articles_on_writer_id"
+  end
+
+  create_table "knowledge_tags", charset: "utf8", force: :cascade do |t|
+    t.string "name", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["name"], name: "index_knowledge_tags_on_name", unique: true
   end
 
   create_table "paid_article_orders", charset: "utf8", force: :cascade do |t|
@@ -90,6 +106,8 @@ ActiveRecord::Schema.define(version: 2022_02_27_092215) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "article_knowledge_tags", "articles"
+  add_foreign_key "article_knowledge_tags", "knowledge_tags"
   add_foreign_key "articles", "users", column: "writer_id"
   add_foreign_key "paid_article_orders", "paid_articles"
   add_foreign_key "paid_article_orders", "users", column: "buyer_id"
