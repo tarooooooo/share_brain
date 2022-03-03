@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_02_27_092215) do
+ActiveRecord::Schema.define(version: 2022_03_03_224908) do
 
   create_table "admin_users", charset: "utf8", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -51,6 +51,15 @@ ActiveRecord::Schema.define(version: 2022_02_27_092215) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["name"], name: "index_knowledge_tags_on_name", unique: true
+  end
+
+  create_table "paid_article_messages", charset: "utf8", force: :cascade do |t|
+    t.bigint "paid_article_id", null: false
+    t.string "title", null: false
+    t.text "body", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["paid_article_id"], name: "index_paid_article_messages_on_paid_article_id"
   end
 
   create_table "paid_article_orders", charset: "utf8", force: :cascade do |t|
