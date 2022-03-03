@@ -11,9 +11,11 @@
         </div>
       </div>
       <div class="paid_article-content">
+
         <%= markdown(@paid_article.content).html_safe %>
       </div>
     </div>
     <%= cell('public/paid_article', @paid_article).(:infomation_modal) %>
+    <%= link_to '購入する',  new_public_paid_article_paid_article_order_path(@paid_article), class: 'btn btn-primary' %>
   </section>
 </div>

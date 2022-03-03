@@ -9,14 +9,21 @@ devise_for :users, controllers: {
 
 devise_scope :user do
   get '/users/sign_out' => 'public/users/sessions#destroy'
-  patch "users/confirmation", to: "public/users/confirmations#confirm"
+  patch 'users/confirmation', to: 'public/users/confirmations#confirm'
 end
 
 namespace :public, path: '/' do
   root 'top_page#show'
 
   resources :articles
-  resources :paid_articles
+  resources :paid_articles do
+    resources :paid_article_orders do
+      collection do
+        post :confirm
+        get :done
+      end
+    end
+  end
 
   namespace :mypage do
     root 'top_page#show'

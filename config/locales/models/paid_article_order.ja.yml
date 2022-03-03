@@ -1,0 +1,15 @@
+---
+ja:
+  activerecord:
+    models:
+      paid_article_order: 購入情報
+    attributes:
+      paid_article_order:
+        buyer: 購入者
+        paid_article: 購入商品
+        payment_method: 支払い方法
+  enums:
+    paid_article_order:
+      payment_method:
+        credit_card: クレジットカード
+        bank_transfer: 銀行振込

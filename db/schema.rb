@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_02_27_055307) do
+ActiveRecord::Schema.define(version: 2022_02_27_092215) do
 
   create_table "admin_users", charset: "utf8", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -53,6 +53,27 @@ ActiveRecord::Schema.define(version: 2022_02_27_055307) do
     t.index ["name"], name: "index_knowledge_tags_on_name", unique: true
   end
 
+  create_table "paid_article_orders", charset: "utf8", force: :cascade do |t|
+    t.bigint "buyer_id", null: false
+    t.bigint "paid_article_id", null: false
+    t.integer "payment_method", default: 0, null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["buyer_id"], name: "index_paid_article_orders_on_buyer_id"
+    t.index ["paid_article_id"], name: "index_paid_article_orders_on_paid_article_id"
+  end
+
+  create_table "paid_article_sales", charset: "utf8", force: :cascade do |t|
+    t.bigint "seller_id", null: false
+    t.bigint "paid_article_order_id", null: false
+    t.float "fee_rate", null: false
+    t.integer "fee", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["paid_article_order_id"], name: "index_paid_article_sales_on_paid_article_order_id"
+    t.index ["seller_id"], name: "index_paid_article_sales_on_seller_id"
+  end
+
   create_table "paid_articles", charset: "utf8", force: :cascade do |t|
     t.bigint "seller_id", null: false
     t.string "title", null: false
@@ -88,5 +109,9 @@ ActiveRecord::Schema.define(version: 2022_02_27_055307) do
   add_foreign_key "article_knowledge_tags", "articles"
   add_foreign_key "article_knowledge_tags", "knowledge_tags"
   add_foreign_key "articles", "users", column: "writer_id"
+  add_foreign_key "paid_article_orders", "paid_articles"
+  add_foreign_key "paid_article_orders", "users", column: "buyer_id"
+  add_foreign_key "paid_article_sales", "paid_article_orders"
+  add_foreign_key "paid_article_sales", "users", column: "seller_id"
   add_foreign_key "paid_articles", "users", column: "seller_id"
 end

@@ -5,6 +5,7 @@ class PaidArticle < ApplicationRecord
   mount_uploader :attachment_file, PaidArticleAttachmentFileUploader
 
   belongs_to :seller, class_name: 'User'
+
   enum publish_status: {
     draft: 0,
     published: 10,
