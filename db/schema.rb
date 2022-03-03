@@ -57,6 +57,8 @@ ActiveRecord::Schema.define(version: 2022_03_03_224908) do
     t.bigint "paid_article_id", null: false
     t.string "title", null: false
     t.text "body", null: false
+    t.datetime "published_at"
+    t.integer "publish_status", default: 0, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["paid_article_id"], name: "index_paid_article_messages_on_paid_article_id"
