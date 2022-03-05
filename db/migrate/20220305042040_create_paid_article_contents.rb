@@ -4,7 +4,7 @@ class CreatePaidArticleContents < ActiveRecord::Migration[6.1]
       t.references :paid_article, index: { unique: true }, null: false, foreign_key: true
       t.string :main_image, null: false
       t.string :movie_id
-      t.text :content
+      t.text :body
 
       t.timestamps
     end

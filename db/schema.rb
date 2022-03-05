@@ -57,7 +57,7 @@ ActiveRecord::Schema.define(version: 2022_03_05_042040) do
     t.bigint "paid_article_id", null: false
     t.string "main_image", null: false
     t.string "movie_id"
-    t.text "content"
+    t.text "body"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["paid_article_id"], name: "index_paid_article_contents_on_paid_article_id", unique: true
