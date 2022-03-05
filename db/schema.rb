@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_02_27_092215) do
+ActiveRecord::Schema.define(version: 2022_03_05_042040) do
 
   create_table "admin_users", charset: "utf8", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -51,6 +51,16 @@ ActiveRecord::Schema.define(version: 2022_02_27_092215) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["name"], name: "index_knowledge_tags_on_name", unique: true
+  end
+
+  create_table "paid_article_contets", charset: "utf8", force: :cascade do |t|
+    t.bigint "paid_article_id", null: false
+    t.string "main_image"
+    t.string "movie_id"
+    t.text "content"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["paid_article_id"], name: "index_paid_article_contets_on_paid_article_id"
   end
 
   create_table "paid_article_orders", charset: "utf8", force: :cascade do |t|
@@ -109,6 +119,7 @@ ActiveRecord::Schema.define(version: 2022_02_27_092215) do
   add_foreign_key "article_knowledge_tags", "articles"
   add_foreign_key "article_knowledge_tags", "knowledge_tags"
   add_foreign_key "articles", "users", column: "writer_id"
+  add_foreign_key "paid_article_contets", "paid_articles"
   add_foreign_key "paid_article_orders", "paid_articles"
   add_foreign_key "paid_article_orders", "users", column: "buyer_id"
   add_foreign_key "paid_article_sales", "paid_article_orders"
