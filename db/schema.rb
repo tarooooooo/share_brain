@@ -54,14 +54,15 @@ ActiveRecord::Schema.define(version: 2022_03_03_224908) do
   end
 
   create_table "paid_article_messages", charset: "utf8", force: :cascade do |t|
+    t.bigint "sender_id", null: false
     t.bigint "paid_article_id", null: false
     t.string "title", null: false
     t.text "body", null: false
-    t.datetime "published_at"
     t.integer "publish_status", default: 0, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["paid_article_id"], name: "index_paid_article_messages_on_paid_article_id"
+    t.index ["sender_id"], name: "index_paid_article_messages_on_sender_id"
   end
 
   create_table "paid_article_orders", charset: "utf8", force: :cascade do |t|
@@ -120,6 +121,7 @@ ActiveRecord::Schema.define(version: 2022_03_03_224908) do
   add_foreign_key "article_knowledge_tags", "articles"
   add_foreign_key "article_knowledge_tags", "knowledge_tags"
   add_foreign_key "articles", "users", column: "writer_id"
+  add_foreign_key "paid_article_messages", "users", column: "sender_id"
   add_foreign_key "paid_article_orders", "paid_articles"
   add_foreign_key "paid_article_orders", "users", column: "buyer_id"
   add_foreign_key "paid_article_sales", "paid_article_orders"
