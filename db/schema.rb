@@ -11,7 +11,7 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema.define(version: 2022_03_05_042040) do
-
+  
   create_table "admin_users", charset: "utf8", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -57,7 +57,7 @@ ActiveRecord::Schema.define(version: 2022_03_05_042040) do
     t.bigint "paid_article_id", null: false
     t.string "main_image", null: false
     t.string "movie_id"
-    t.text "content"
+    t.text "body"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["paid_article_id"], name: "index_paid_article_contents_on_paid_article_id", unique: true
@@ -87,7 +87,7 @@ ActiveRecord::Schema.define(version: 2022_03_05_042040) do
   create_table "paid_articles", charset: "utf8", force: :cascade do |t|
     t.bigint "seller_id", null: false
     t.string "title", null: false
-    t.text "content", null: false
+    t.text "body", null: false
     t.integer "price", default: 0, null: false
     t.datetime "published_at"
     t.integer "publish_status", default: 0, null: false
