@@ -48,7 +48,7 @@ class Public::PaidArticlesController < ::Public::BaseController
     params.require(:paid_article).permit(
       :seller_id,
       :title,
-      :content,
+      :body,
       :published_at,
       :price,
       :publish_status,

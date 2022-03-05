@@ -12,7 +12,7 @@
       </div>
       <div class="paid_article-content">
 
-        <%= markdown(@paid_article.content).html_safe %>
+        <%= markdown(@paid_article.body).html_safe %>
       </div>
     </div>
     <%= cell('public/paid_article', @paid_article).(:infomation_modal) %>
