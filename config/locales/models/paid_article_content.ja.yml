@@ -1,0 +1,12 @@
+---
+ja:
+  activerecord:
+    models:
+      paid_article_content: コンテンツ
+    attributes:
+      paid_article_content:
+        paid_article_id: 商品
+        main_image: メイン画像
+        movie_id: YouTubeURL
+        body: 本文
+        price: 価格
