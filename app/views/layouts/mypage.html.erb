@@ -15,8 +15,19 @@
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.js"></script>
 </head>
-<body class="public">
+<body class="mypage">
   <%= render 'public/shared/header' %>
-  <%= yield %>
+  <div class="wrapper">
+    <%= render 'public/shared/flash_messages', flash: flash %>
+    <div class="mypage">
+      <div class="container">
+        <div class="d-flex flex-nowrap row">
+          <%= render 'public/mypage/shared/sidebar' %>
+          <%= yield %>
+        </div>
+      </div>
+    </div>
+  </div>
   <%= render 'public/shared/footer' %>
 </body>
+</html>

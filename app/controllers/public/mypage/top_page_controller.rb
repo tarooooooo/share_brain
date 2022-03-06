@@ -1,6 +1,6 @@
 module Public
   module Mypage
-    class TopPageController < ApplicationController
+    class TopPageController < ::Public::Mypage::BaseController
       def show; end
     end
   end

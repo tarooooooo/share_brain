@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class Public::Users::ConfirmationsController < Devise::ConfirmationsController
+  before_action :authenticate_user!
   layout 'public'
   # GET /resource/confirmation/new
   def new
