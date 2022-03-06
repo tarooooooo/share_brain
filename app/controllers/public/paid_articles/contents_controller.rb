@@ -1,5 +1,6 @@
 
 class ::Public::PaidArticles::ContentsController < ::Public::BaseController
+  before_action :authenticate_user!
   before_action :set_paid_article
   before_action :set_paid_article_content
 

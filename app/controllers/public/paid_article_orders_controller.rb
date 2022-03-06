@@ -1,4 +1,5 @@
 class Public::PaidArticleOrdersController < ::Public::BaseController
+  before_action :authenticate_user!
   before_action :set_paid_article, only: [:new, :confirm, :create, :done]
   before_action :set_paid_article_order, only: [:new, :confirm, :create]
 

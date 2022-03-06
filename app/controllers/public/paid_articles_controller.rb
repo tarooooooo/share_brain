@@ -1,4 +1,5 @@
 class Public::PaidArticlesController < ::Public::BaseController
+  before_action :authenticate_user!
   before_action :set_paid_article, only: [:show, :edit, :update, :destroy]
 
   def index
