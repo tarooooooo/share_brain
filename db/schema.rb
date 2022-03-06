@@ -10,8 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_03_05_091910) do
-
+ActiveRecord::Schema.define(version: 2022_03_05_042040) do
+  
   create_table "admin_users", charset: "utf8", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -37,7 +37,7 @@ ActiveRecord::Schema.define(version: 2022_03_05_091910) do
   create_table "articles", charset: "utf8", force: :cascade do |t|
     t.bigint "writer_id", null: false, comment: "ユーザーID"
     t.string "title", null: false
-    t.text "contents", null: false
+    t.text "content", null: false
     t.datetime "published_at"
     t.integer "publish_status", default: 0, null: false
     t.datetime "created_at", precision: 6, null: false

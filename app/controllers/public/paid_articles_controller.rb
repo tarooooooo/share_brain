@@ -15,7 +15,8 @@ class Public::PaidArticlesController < ::Public::BaseController
     @paid_article = PaidArticle.new(paid_article_params)
     @paid_article.time_current_in_published_at
     @paid_article.seller = current_user
-    if @paid_article.save!
+    @paid_article.save!
+    if @paid_article.save
       redirect_to [:public, @paid_article], notice: '有料記事を作成しました'
     else
       render :new

@@ -5,7 +5,6 @@ class PaidArticle < ApplicationRecord
   mount_uploader :attachment_file, PaidArticleAttachmentFileUploader
 
   belongs_to :seller, class_name: 'User'
-  has_one :content, class_name: 'PaidArticleContent', dependent: :destroy
 
   enum publish_status: {
     draft: 0,
@@ -14,7 +13,7 @@ class PaidArticle < ApplicationRecord
   }, _prefix: true
 
   validates :title, presence: true, length: { maximum: 255 }
-  validates :body, presence: true
+  validates :content, presence: true
   validates :price, presence: true, numericality: { only_integer: true, greater_than_or_equal_to: 100, less_than_or_equal_to: 100000 }
   validates :main_image, presence: true
 
