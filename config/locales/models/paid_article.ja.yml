@@ -8,7 +8,7 @@ ja:
         seller: 投稿者
         seller_id: 投稿者
         title: タイトル
-        body: 本文
+        content: 本文
         price: 価格
         published_at: 公開日
         main_image: メイン画像

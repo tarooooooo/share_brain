@@ -41,8 +41,6 @@ GEM
       erubi (~> 1.4)
       rails-dom-testing (~> 2.0)
       rails-html-sanitizer (~> 1.1, >= 1.2.0)
-    active_decorator (1.4.0)
-      activesupport
     active_interaction (4.1.0)
       activemodel (>= 5, < 8)
       activesupport (>= 5, < 8)
@@ -298,7 +296,6 @@ PLATFORMS
 
 DEPENDENCIES
   aasm
-  active_decorator
   active_interaction (~> 4.1)
   bootsnap (>= 1.4.4)
   byebug
@@ -314,7 +311,6 @@ DEPENDENCIES
   jbuilder (~> 2.7)
   jquery-rails
   listen (~> 3.3)
-  mini_magick
   mysql2
   pry-doc
   pry-rails
