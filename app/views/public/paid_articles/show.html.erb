@@ -11,8 +11,14 @@
           <%= image_tag @paid_article.content.main_image.url %>
         </div>
       <% end %>
-      <div class="paid_article_order_btn">
-        <%= link_to '購入する',  new_public_paid_article_paid_article_order_path(@paid_article), class: 'paid-article-order-link btn btn-primary' %>
+      <div class="paid_article_btn">
+        <div class="order-btn mb-2">
+          <%= link_to '購入する',  new_public_paid_article_paid_article_order_path(@paid_article), class: 'max-width-link btn btn-primary' %>
+        </div>
+        <div class="content-btn">
+          <%= cell('public/paid_article/content/btn', @paid_article).(:new, class: 'btn btn-primary max-width-link') %>
+          <%= cell('public/paid_article/content/btn', @paid_article).(:edit, class: 'btn btn-info max-width-link') %>
+        </div>
       </div>
     </div>
   <% end %>
