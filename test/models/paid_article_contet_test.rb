@@ -1,6 +1,6 @@
 require "test_helper"
 
-class PaidArticleContetTest < ActiveSupport::TestCase
+class PaidArticleContentTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end
