@@ -1,4 +1,18 @@
+<div class="top_image">
+  <div class="text_box">
+
+    <p class="top_title">
+      エンジニアの技術・情報を共有できる
+    </p>
+    <p class="top_title">
+      記事・教材投稿サービス
+    </p>
+    <%= link_to "教材を見る" , public_paid_articles_path , class:"btn btn-primary" %>
+  </div>
+</div>
 <div class="top-page-container container-fluid">
   <%= render 'public/shared/partials/faq' %>
-  <%= render 'public/shared/partials/slider', articles: @articles %>
+  <%= render 'public/shared/partials/slider', paid_articles: @paid_articles %>
+</div>
+<div class="image">
 </div>

@@ -1,13 +1,17 @@
 <section class='article-list-slider js-article-slider'>
+  <h2 class="mx-3 text-center">新着商品</h2>
   <div id="top-page-articles">
-    <% articles.each do |article| %>
-      <div class="article_card card">
-        <div class="card-body">
-          <p class="card-title"><%= article.title %></p>
-          <p class="card-text"><%= article.writer_name %></p>
-          <p class="card-text"><%= l(article.published_at, format: :long) %></p>
+    <% paid_articles.each do |paid_article| %>
+      <%= link_to public_paid_article_path(paid_article) do %>
+        <div class="card">
+          <%= image_tag paid_article.content.main_image.url, class:'card-img-top' %>
+          <div class="card-body">
+            <p class="card-title"><%= paid_article.title %></p>
+            <p class="card-text"><%= paid_article.seller_name %></p>
+            <p class="card-text"><%= l(paid_article.published_at, format: :long) %></p>
+          </div>
         </div>
-      </div>
+      <% end %>
     <% end %>
   </div>
   <script type="text/javascript" charset="utf-8">
@@ -15,7 +19,7 @@
           $('#top-page-articles').slick({
               arrows: true,
               autoplay: false,
-              slidesToShow: 4,
+              slidesToShow: 3,
               swipe: true,
               accessibility: true,
               dots: true,
