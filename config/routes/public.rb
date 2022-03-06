@@ -18,7 +18,7 @@ namespace :public, path: '/' do
   resources :articles
   resources :paid_articles do
     scope module: :paid_articles do
-      resources :content
+      resource :content
     end
     resources :paid_article_orders do
       collection do
