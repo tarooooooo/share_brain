@@ -1,6 +1,7 @@
 class Public::ArticlesController < ::Public::BaseController
   before_action :authenticate_user!
   before_action :set_article, only: [:show, :edit, :update, :destroy]
+  before_action :check_authorize
 
   def index
     @articles = Article.all
@@ -50,5 +51,11 @@ class Public::ArticlesController < ::Public::BaseController
     params.require(:article).permit(
       :writer_id, :title, :content, :published_at, :publish_status, :deleted_at, knowledge_tag_ids: []
     )
+  end
+
+  def check_authorize
+    return authorize @article if @article.present?
+
+    authorize Article
   end
 end
