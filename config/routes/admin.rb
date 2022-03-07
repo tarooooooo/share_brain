@@ -9,6 +9,10 @@ namespace :admin do
 
   resources :admin_users
   resources :knowledge_tags
+  resources :users
+  resources :paid_articles
+  resources :articles
+  resources :paid_article_orders
 end
 
 devise_scope :admin_user do
