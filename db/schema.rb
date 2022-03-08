@@ -27,15 +27,11 @@ ActiveRecord::Schema.define(version: 2022_03_08_215642) do
 
   create_table "article_content_data", charset: "utf8", force: :cascade do |t|
     t.bigint "article_id", null: false, comment: "記事ID"
-    t.text "body", null: false, comment: "本文"
+    t.text "summary", null: false, comment: "商品概要"
     t.integer "price", null: false, comment: "価格"
-    t.datetime "published_at", comment: "公開日"
-    t.integer "publish_status", default: 0, null: false, comment: "公開ステータス"
-    t.integer "order", null: false, comment: "並び替え番号"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["article_id"], name: "index_article_content_data_on_article_id", unique: true
-    t.index ["order"], name: "index_article_content_data_on_order", unique: true
   end
 
   create_table "article_knowledge_tags", charset: "utf8", force: :cascade do |t|
