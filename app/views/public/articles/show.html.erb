@@ -17,7 +17,7 @@
         </div>
       </div>
       <div class="article-content">
-        <%= markdown(@article.content).html_safe %>
+        <%= markdown(@article.body).html_safe %>
       </div>
     </div>
     <%= cell('public/article', @article).(:show) %>

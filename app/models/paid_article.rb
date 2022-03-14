@@ -1,7 +1,6 @@
 class PaidArticle < ApplicationRecord
   include AASM
 
-  mount_uploader :main_image, PaidArticleMainImageUploader
   mount_uploader :attachment_file, PaidArticleAttachmentFileUploader
 
   belongs_to :seller, class_name: 'User'
@@ -16,7 +15,6 @@ class PaidArticle < ApplicationRecord
   validates :title, presence: true, length: { maximum: 255 }
   validates :body, presence: true
   validates :price, presence: true, numericality: { only_integer: true, greater_than_or_equal_to: 100, less_than_or_equal_to: 100000 }
-  validates :main_image, presence: true
 
   delegate :name, to: :seller, prefix: true
 
@@ -46,21 +44,20 @@ class PaidArticle < ApplicationRecord
     end
   end
 
-  class << self
-    def create_from!(article:)
-      seller = article.writer
-      title = article.title
-      body = article.content
-      price = article.content.price
-      published_at = article.published_at
-
-      PaidArticle.create!(
-        seller_id: seller.id,
-        title: title,
-        body: body,
-        price: price,
-        published_at: published_at
-      )
-    end
-  end
+  # class << self
+  #   def create_from!(article:)
+  #     seller = article.writer
+  #     title = article.title
+  #     body = article.body
+  #     price = article.content_data.price
+  #     published_at = article.published_at
+  #     PaidArticle.create!(
+  #       seller_id: seller.id,
+  #       title: title,
+  #       body: body,
+  #       price: price,
+  #       published_at: published_at
+  #     )
+  #   end
+  # end
 end

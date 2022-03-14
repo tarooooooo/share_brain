@@ -13,8 +13,8 @@ class Public::Articles::ContentDataController < ::Public::BaseController
     )
     redirect_to [:public, @article], notice: '商品情報を作成しました'
 
-    rescue StandardError => e
-      redirect_to [:public, @article], alert: e.message
+    # rescue StandardError => e
+    #   redirect_to [:public, @article], alert: e.message
   end
 
   def edit; end

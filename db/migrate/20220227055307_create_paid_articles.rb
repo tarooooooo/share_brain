@@ -7,7 +7,6 @@ class CreatePaidArticles < ActiveRecord::Migration[6.1]
       t.integer :price, null: false, default: 0
       t.datetime :published_at
       t.integer :publish_status, null: false, default: 0
-      t.string :main_image, null: false, default: 0
       t.string :attachment_file, default: 0
 
       t.timestamps

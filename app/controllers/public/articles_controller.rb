@@ -49,7 +49,7 @@ class Public::ArticlesController < ::Public::BaseController
 
   def article_params
     params.require(:article).permit(
-      :writer_id, :title, :content, :published_at, :publish_status, :deleted_at, knowledge_tag_ids: []
+      :writer_id, :title, :body, :published_at, :publish_status, :deleted_at, knowledge_tag_ids: []
     )
   end
 
