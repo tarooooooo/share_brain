@@ -3,6 +3,12 @@ class Article < ApplicationRecord
   has_many :knowledge_tags, through: :article_knowledge_tags
   has_one :content_data, dependent: :destroy, class_name: 'ArticleContentDatum'
   belongs_to :writer, class_name:'User'
+
+  enum status: {
+    free: 0,
+    paid: 1
+  }, _prefix: true
+
   enum publish_status: {
     draft: 0,
     published: 10,

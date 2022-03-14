@@ -45,4 +45,22 @@ class PaidArticle < ApplicationRecord
       self.published_at = Time.zone.at(t.to_i / sec_per_min * sec_per_min)
     end
   end
+
+  class << self
+    def create_from!(article:)
+      seller = article.writer
+      title = article.title
+      body = article.content
+      price = article.content.price
+      published_at = article.published_at
+
+      PaidArticle.create!(
+        seller_id: seller.id,
+        title: title,
+        body: body,
+        price: price,
+        published_at: published_at
+      )
+    end
+  end
 end

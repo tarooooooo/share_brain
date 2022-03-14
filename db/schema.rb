@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_03_08_215642) do
+ActiveRecord::Schema.define(version: 2022_03_12_074838) do
 
   create_table "admin_users", charset: "utf8", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -49,6 +49,7 @@ ActiveRecord::Schema.define(version: 2022_03_08_215642) do
     t.text "content", null: false
     t.datetime "published_at"
     t.integer "publish_status", default: 0, null: false
+    t.integer "status", default: 0, null: false, comment: "種別： {\"無料\"=>0, \"有料\"=>1}"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.datetime "deleted_at"

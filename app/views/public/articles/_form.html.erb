@@ -1,4 +1,5 @@
 <%= simple_form_for([:public, article]) do |f| %>
+  <h3 class="pl-3">記事作成</h3>
   <div class="card-body">
     <%= f.error_notification %>
     <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>

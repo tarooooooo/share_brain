@@ -23,3 +23,6 @@
     <%= cell('public/article', @article).(:show) %>
   </section>
 </div>
+<%= cell('public/article/content_datum/btn', @article).(:new, class: 'btn btn-primary') %>
+<%= cell('public/article/content_datum/btn', @article).(:edit, class: 'btn btn-info') %>
+<%= cell('public/article/order/btn', @article).(:new, class: 'btn btn-primary') %>
