@@ -37,7 +37,7 @@ ActiveRecord::Schema.define(version: 2022_03_05_091910) do
   create_table "articles", charset: "utf8", force: :cascade do |t|
     t.bigint "writer_id", null: false, comment: "ユーザーID"
     t.string "title", null: false
-    t.text "contents", null: false
+    t.text "content", null: false
     t.datetime "published_at"
     t.integer "publish_status", default: 0, null: false
     t.datetime "created_at", precision: 6, null: false
