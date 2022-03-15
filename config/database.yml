@@ -20,7 +20,6 @@ default: &default
 development:
   <<: *default
   database: share_brain_development
-  host: <%= ENV['MYSQL_ROOT_HOST'] || '127.0.0.1' %>
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
@@ -28,6 +27,7 @@ development:
 test:
   <<: *default
   database: share_brain_test
+  host: <%= ENV['MYSQL_ROOT_HOST'] || '127.0.0.1' %>
 
 # As with config/credentials.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
