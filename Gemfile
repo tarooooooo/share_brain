@@ -32,6 +32,7 @@ group :development, :test do
   gem 'pry-rails'
   gem 'pry-doc'
   gem 'rspec-rails'
+  gem 'rspec_junit_formatter'
 end
 
 group :development do
