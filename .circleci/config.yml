@@ -78,7 +78,7 @@ jobs:
           force: true
     environment:
       - RAILS_ENV: production
-      - HEROKU_APP_NAME: $HEROKU_APP_NAME
+      - HEROKU_APP_NAME: sharebrain-rtr
 
 workflows:
   build_and_deploy:
