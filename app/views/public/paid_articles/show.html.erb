@@ -1,0 +1,43 @@
+<div class="paid-articles-container container-fluid">
+  <h1 class="paid-article-title"><%= @paid_article.title %></h1>
+  <% if @paid_article.content.present? %>
+    <div class="paid_article_overview">
+      <% if @paid_article.content.movie_id.present? %>
+        <div class="paid-articles-show_overview_youtube">
+          <iframe src="<%= @paid_article.content.movie_iframe_url %>" frameborder="0"></iframe>
+        </div>
+      <% else %>
+        <div class="content_main_image">
+          <%= image_tag @paid_article.content.main_image.url %>
+        </div>
+      <% end %>
+      <div class="paid_article_btn">
+        <div class="order-btn mb-2">
+          <%= link_to '購入する',  new_public_paid_article_paid_article_order_path(@paid_article), class: 'max-width-link btn btn-primary' %>
+        </div>
+        <div class="content-btn">
+          <%= cell('public/paid_article/content/btn', @paid_article).(:new, class: 'btn btn-primary max-width-link') %>
+          <%= cell('public/paid_article/content/btn', @paid_article).(:edit, class: 'btn btn-info max-width-link') %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+  <section class="paid-articles">
+    <div class="paid-articles-detail">
+      <div class="paid-article-item">
+        <div class="published_at">
+          公開日時：<%= l(@paid_article.published_at, format: :long) %>
+        </div>
+        <div class="writer_name">
+          投稿者：<%= @paid_article.seller_name %>
+        </div>
+      </div>
+      <% if @paid_article.content.present? %>
+        <div class="paid-article-content">
+          <%= markdown(@paid_article.content.body).html_safe %>
+        </div>
+      <% end %>
+    </div>
+    <%= cell('public/paid_article', @paid_article).(:infomation_modal) %>
+  </section>
+</div>

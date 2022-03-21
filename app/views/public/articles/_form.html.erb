@@ -1,0 +1,15 @@
+<%= simple_form_for([:public, article]) do |f| %>
+  <div class="card-body">
+    <%= f.error_notification %>
+    <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+    <%= f.input :title, placeholder: 'タイトル', label: false %>
+    <%= f.input :content, placeholder: '本文：Markdownで記述できます', label: false %>
+    <%= f.input :published_at, html5: true, placeholder: '本文：Markdownで記述できます' %>
+    <%= f.input :knowledge_tag_ids, label: 'タグ', as: :check_boxes, collection: KnowledgeTag.all %>
+    <%= f.input :publish_status, selected: 'published', placeholder: '本文：Markdownで記述できます' %>
+
+    <div class="card-footer">
+      <%= f.submit class: 'btn btn-submit' %>
+    </div>
+  </div>
+<% end %>

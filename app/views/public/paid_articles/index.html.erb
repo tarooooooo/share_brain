@@ -1,0 +1,15 @@
+<section class="paid_articles_box container-fluid">
+  <div class="paid_articles_list">
+    <% @paid_articles.each do |paid_article| %>
+      <%= link_to public_paid_article_path(paid_article) do %>
+        <div class="paid_article_card card">
+          <div class="card-body">
+            <p class="card-title"><%= paid_article.title %></p>
+            <p class="card-text"><%= paid_article.seller_name %></p>
+            <p class="card-text"><%= l(paid_article.published_at, format: :long) %></p>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+</section>

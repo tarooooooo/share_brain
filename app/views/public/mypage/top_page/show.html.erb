@@ -1,0 +1,12 @@
+<div class="mypage_contents col-md-8">
+  <div class="user_profile">
+    <div class="user_profile_img">
+      <% if current_user.icon_image.present? %>
+        <%= image_tag current_user.icon_image_url %>
+      <% end %>
+    </div>
+    <div class="user_name">
+      <%= current_user.name %>
+    </div>
+  </div>
+</div>

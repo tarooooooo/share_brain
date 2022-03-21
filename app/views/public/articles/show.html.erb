@@ -1,0 +1,25 @@
+<div class="articles-container container-fluid">
+  <h3 class="article-title"><%= @article.title %></h3>
+  <section class="articles">
+    <div class="articles-detail">
+      <div class="article-item">
+        <div class="published_at">
+          公開日時：<%= l(@article.published_at, format: :long) %>
+        </div>
+        <div class="writer_name">
+          投稿者：<%= @article.writer_name %>
+        </div>
+        <div class="knowledge_tag">
+          タグ：
+          <% @knowledge_tags.each do |knowledge_tag| %>
+            <%= knowledge_tag.name %>
+          <% end %>
+        </div>
+      </div>
+      <div class="article-content">
+        <%= markdown(@article.content).html_safe %>
+      </div>
+    </div>
+    <%= cell('public/article', @article).(:show) %>
+  </section>
+</div>

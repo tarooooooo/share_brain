@@ -1,0 +1,16 @@
+.paid-article_infomation_modal
+  .paid-article-action-item
+    .fa.fa-fw.fa-ellipsis-h.dropdown-btn
+  ul.dropdown-paid-article-menu
+    li.dropdown-paid-article-item
+      = link_to edit_public_paid_article_path(model)
+        p.paid-article-link
+          | 商品編集
+    li.dropdown-paid-article-item
+      = link_to new_public_paid_article_content_path(model)
+        p.paid-article-link
+          | コンテンツ作成
+    li.dropdown-paid-article-item
+      = link_to edit_public_paid_article_content_path(model)
+        p.paid-article-link
+          | コンテンツ編集

@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  paid_article: one
+  main_image: MyString
+  movie_id: MyString
+  content: MyText
+
+two:
+  paid_article: two
+  main_image: MyString
+  movie_id: MyString
+  content: MyText

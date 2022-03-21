@@ -1,0 +1,84 @@
+// Place all the styles related to the public/paid_articles controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+//show
+.paid-articles-container {
+  max-width: 1000px;
+
+  .paid-article-title {
+    font-size: 50px;
+    text-align: left;
+    margin: 30px 0 30px 0;
+  }
+
+  .paid_article_overview {
+    display: flex;
+    justify-content: space-between;
+    .paid-articles-show_overview_youtube iframe {
+      top: 0;
+      right: 0;
+      width: 500px;
+      height: 300px;
+      border-radius: 16px;
+    }
+
+    .content_main_image {
+      top: 0;
+      right: 0;
+      width: 500px;
+      height: 300px;
+      border-radius: 16px;
+    }
+
+    .paid_article_btn {
+      top: 100px;
+      flex: 0 0 400px;
+
+      .max-width-link {
+        width: 100%;
+      }
+    }
+
+  }
+
+  .paid-article_item {
+    text-align: right;
+  }
+
+  .paid-articles {
+    display: flex;
+
+    .paid-articles-detail {
+      width: 880px;
+      background-color: white;
+      margin-bottom: 50px;
+      padding: 20px;
+
+      .paid-article-item {
+        text-align: right;
+        color: #999999;
+      }
+    }
+    .paid-article_infomation_modal {
+      width: 100px;
+      .dropdown-paid-article-menu {
+        display: none;
+        list-style: none;
+        padding: 0;
+        background-color: white;
+
+        .dropdown-paid-article-item {
+          border: 1px solid #999999;
+          .paid-article-link {
+            color: black;
+          }
+        }
+      }
+    }
+  }
+}
+
+#article_content {
+  height: 500px;
+}

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>ShareBrain</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+
+  <%= stylesheet_link_tag 'application', media: 'all' %>
+  <%= javascript_pack_tag 'application' %>
+  <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+  <script defer src="https://use.fontawesome.com/releases/v5.15.4/js/all.js" integrity="sha384-rOA1PnstxnOBLzCLMcre8ybwbTmemjzdNlILg8O7z1lUkLXozs4DHonlDtnE7fpc" crossorigin="anonymous"></script>
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.js"></script>
+</head>
+<body class="mypage">
+  <%= render 'public/shared/header' %>
+  <div class="wrapper">
+    <%= render 'public/shared/flash_messages', flash: flash %>
+    <div class="mypage">
+      <div class="container">
+        <div class="d-flex flex-nowrap row">
+          <%= render 'public/mypage/shared/sidebar' %>
+          <%= yield %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <%= render 'public/shared/footer' %>
+</body>
+</html>
