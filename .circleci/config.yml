@@ -89,7 +89,7 @@ workflows:
             - build
           name: deploy_staging
           env: staging
-          heroku_app_name: $HEROKU_APP_NAME
+          heroku_app_name: sharebrain-rtr
           filters:
             branches:
               only: [dev]
