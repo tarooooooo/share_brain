@@ -81,9 +81,12 @@ jobs:
       - HEROKU_APP_NAME: $HEROKU_APP_NAME
 
 workflows:
-  deploy_staging:
+  build_and_deploy:
     jobs:
+      - build
       - deploy:
+          requires:
+            - build
           name: deploy_staging
           env: staging
           heroku_app_name: $HEROKU_APP_NAME
