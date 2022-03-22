@@ -77,8 +77,8 @@ jobs:
       - heroku/deploy-via-git:
           force: true
     environment:
-      - RAILS_ENV: production
-      - HEROKU_APP_NAME: sharebrain-rtr
+      - RAILS_ENV: << parameters.env >>
+      - HEROKU_APP_NAME: << parameters.heroku_app_name >>
 
 workflows:
   build_and_deploy:
