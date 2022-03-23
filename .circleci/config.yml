@@ -2,6 +2,7 @@ version: 2.1
 
 orbs:
   heroku: circleci/heroku@1.2.3
+  ruby: circleci/ruby@1.1.2
 
 jobs:
   build:
@@ -64,21 +65,26 @@ jobs:
           destination: test-results
 
   deploy:
-    executor: heroku/default
-    parameters:
-      env:
-        type: enum
-        enum: [ "staging", "production" ]
-      heroku_app_name:
-        type: string
+    docker:
+      - image: circleci/ruby:2.7.4-node-browsers
     steps:
       - checkout
+      - setup_remote_docker:
+          version: 19.03.13
       - heroku/install
-      - heroku/deploy-via-git:
-          force: true
-    environment:
-      - RAILS_ENV: << parameters.env >>
-      - HEROKU_APP_NAME: << parameters.heroku_app_name >>
+      - run:
+          name: heroku login
+          command: heroku container:login
+      - run:
+          name: push docker image
+          command: heroku container:push web -a $HEROKU_APP_NAME
+      - run:
+          name: release docker image
+          command: heroku container:release web -a $HEROKU_APP_NAME
+      - run:
+          name: database setup
+          command: heroku run bundle exec rake db:migrate
+          RAILS_ENV=production -a $HEROKU_APP_NAME
 
 workflows:
   build_and_deploy:
@@ -92,4 +98,4 @@ workflows:
           heroku_app_name: sharebrain-rtr
           filters:
             branches:
-              only: [dev, main]
+              only: dev
