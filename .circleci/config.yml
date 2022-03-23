@@ -92,9 +92,6 @@ workflows:
       - deploy:
           requires:
             - build
-          name: deploy_staging
-          env: staging
-          heroku_app_name: sharebrain-rtr
           filters:
             branches:
               only: dev
