@@ -8,7 +8,7 @@ jobs:
   build:
     docker:
       - image: circleci/ruby:2.7.4-node-browsers
-    working_directory: ~/sharebrain/src
+    working_directory: ~/sharebrain
     steps:
       - checkout:
           path: ~/sharebrain
@@ -26,7 +26,7 @@ jobs:
       BUNDLE_RETRY: "3"
       APP_DATABASE_HOST: "127.0.0.1"
       RAILS_ENV: test
-    working_directory: ~/sharebrain/src
+    working_directory: ~/sharebrain
     steps:
       - checkout:
           path: ~/sharebrain
