@@ -2,7 +2,6 @@ require "active_support/core_ext/integer/time"
 
 Rails.application.configure do
   config.action_mailer.default_url_options = {:host => 'sharebrain-rtr.herokuapp.com', :protocol => 'http'}
-  config.hosts << "localhost.com"
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.raise_delivery_errors = true
