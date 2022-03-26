@@ -14,7 +14,7 @@ default: &default
   encoding: utf8
   pool: 5
   username: root
-  password: password
+  password:
   host: db
 
 development:
@@ -26,8 +26,8 @@ development:
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: app_test
-  host: <%= ENV.fetch("APP_DATABASE_HOST") { 'db' } %>
+  database: share_brain_test
+  host: <%= ENV['MYSQL_ROOT_HOST'] || '127.0.0.1' %>
 
 # As with config/credentials.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
@@ -54,4 +54,4 @@ production:
   database: <%= ENV['APP_DATABASE'] %>
   username: <%= ENV['APP_DATABASE_USERNAME'] %>
   password: <%= ENV['APP_DATABASE_PASSWORD'] %>
-  host: <%= ENV['MYSQL_HOST'] || 'localhost' %>
+  host: <%= ENV['APP_DATABASE_HOST'] %>
