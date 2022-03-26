@@ -18,9 +18,10 @@ jobs:
       - image: circleci/ruby:2.7.4-node-browsers
       - image: circleci/mysql:5.7
         environment:
-          MYSQL_ROOT_PASSWORD: password
-          MYSQL_DATABASE: app_test
+          MYSQL_ROOT_PASSWORD:
+          MYSQL_DATABASE: share_brain_test
           MYSQL_USER: root
+          MYSQL_ALLOW_EMPTY_PASSWORD: 'true'
     environment:
       BUNDLE_JOBS: "3"
       BUNDLE_RETRY: "3"
