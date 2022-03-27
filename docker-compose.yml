@@ -6,6 +6,7 @@ services:
       MYSQL_ROOT_PASSWORD:
       MYSQL_DATABASE: root
       MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
+      MYSQL_USER: root
     ports:
       - "3306:3306"
     volumes:
@@ -18,5 +19,7 @@ services:
       - .:/share_brain
     ports:
       - "3000:3000"
+    environment:
+      RAILS_ENV: development
     depends_on:
       - db
