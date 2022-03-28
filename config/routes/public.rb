@@ -27,7 +27,6 @@ namespace :public, path: '/' do
     resources :paid_article_orders do
       collection do
         post :confirm
-        get :done
       end
     end
   end

@@ -1,19 +1,43 @@
-<div class="container my-5">
-  <div class="row">
-    <div class="col">
-      <div class="text-center">
-        <%= @paid_article.title %>
-        <p>
-          <%= @paid_article.price %> 円
-        </p>
-        <p>
-          <%= @paid_article_order.payment_method %>
-        </p>
-        <%= form_with model: [:public, @paid_article, @paid_article_order], method: :post, local: true do |f| %>
-          <%= f.submit '修正する', name: :payment_method, class: 'btn btn-info' %>
-          <%= f.submit '購入確定', class: 'btn btn-danger' %>
-        <% end %>
+<% if @paid_article.present? %>
+  <div class="container my-5">
+    <div class="row">
+      <div class="col">
+        <div class="text-center">
+          <%= @paid_article.title %>
+          <p>
+            <%= @paid_article.price %> 円
+          </p>
+          <p>
+            <%= @paid_article_order.payment_method %>
+          </p>
+          <%= form_with model: [:public, @paid_article, @paid_article_order], method: :post, local: true do |f| %>
+            <%= f.hidden_field :payment_method %>
+            <%= f.submit '修正する', name: :payment_method, class: 'btn btn-info' %>
+            <%= f.submit '購入確定', class: 'btn btn-danger' %>
+          <% end %>
+        </div>
       </div>
     </div>
   </div>
-</div>
+<% else %>
+  <div class="container my-5">
+    <div class="row">
+      <div class="col">
+        <div class="text-center">
+          <%= @article.title %>
+          <p>
+            <%= @article.content_data.price %> 円
+          </p>
+          <p>
+            <%= @article_order.payment_method %>
+          </p>
+          <%= form_with url: public_paid_article_paid_article_orders_path, method: :post, local: true do |f| %>
+            <%= f.hidden_field :payment_method %>
+            <%= f.submit '修正する', name: :payment_method, class: 'btn btn-info' %>
+            <%= f.submit '購入確定', class: 'btn btn-danger' %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
