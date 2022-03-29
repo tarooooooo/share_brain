@@ -1,5 +1,5 @@
-$(function(){
-    $('.faq_list_questionss').on('click', function(){
+window.addEventListener('DOMContentLoaded', function(){
+    $('.faq_list_question').on('click', function(){
         $(this).next().slideToggle();
     });
 });
