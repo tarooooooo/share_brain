@@ -15,6 +15,7 @@
     li {
       border-top: 1px solid silver;
       padding: 15px 0;
+      position: relative;
 
       &:last-child {
         border-bottom: 1px solid silver;
@@ -22,6 +23,21 @@
 
       .faq_list_question {
         cursor: pointer;
+      }
+      .faq_list_question p::after,
+      .faq_list_question.open p::after {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        margin: auto;
+      }
+      .faq_list_question p::after {
+        content: "▲"
+
+      }
+      .faq_list_question.open p::after {
+        content: '▼'
       }
 
       .faq_list_answer {
