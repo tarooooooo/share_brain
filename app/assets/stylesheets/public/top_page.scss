@@ -141,3 +141,38 @@
     color: white;
   }
 }
+
+//モーダル関連
+.article_create_modal {
+  position: relative;
+  .content {
+    margin-top: 20px;
+    .js-modal-open {
+      color: white;
+    }
+  }
+  .js-modal {
+    display: none;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 99999;
+  }
+  .js_modal_bg {
+    background:rgba(0,0,0,0.7);
+    height: 100vh;
+    position: absolute;
+    width: 100%;
+  }
+  .modal_content {
+    background-color: white;
+    left: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 50%;
+    height: 300px;
+    padding: 50px;
+  }
+}
