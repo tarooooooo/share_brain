@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_03_05_091910) do
+ActiveRecord::Schema.define(version: 2022_03_08_215642) do
 
   create_table "admin_users", charset: "utf8", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -23,6 +23,15 @@ ActiveRecord::Schema.define(version: 2022_03_05_091910) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["email"], name: "index_admin_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true
+  end
+
+  create_table "article_content_data", charset: "utf8", force: :cascade do |t|
+    t.bigint "article_id", null: false, comment: "記事ID"
+    t.text "summary", null: false, comment: "商品概要"
+    t.integer "price", null: false, comment: "価格"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["article_id"], name: "index_article_content_data_on_article_id", unique: true
   end
 
   create_table "article_knowledge_tags", charset: "utf8", force: :cascade do |t|
@@ -116,6 +125,7 @@ ActiveRecord::Schema.define(version: 2022_03_05_091910) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "article_content_data", "articles"
   add_foreign_key "article_knowledge_tags", "articles"
   add_foreign_key "article_knowledge_tags", "knowledge_tags"
   add_foreign_key "articles", "users", column: "writer_id"
