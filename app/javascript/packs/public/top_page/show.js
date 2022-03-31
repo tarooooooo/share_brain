@@ -20,5 +20,10 @@ window.addEventListener('DOMContentLoaded', function(){
     },500);
     setTimeout(function(){
         $('.start').fadeOut(500);
-    },2500);
+    },3500);
+
+    $(window).on('load', function(){
+        $('#loading').delay(1500).fadeOut('slow');
+        $('#loading_box').delay(1200).fadeOut('slow');
+    });
 });
