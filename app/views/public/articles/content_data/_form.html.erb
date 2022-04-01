@@ -1,0 +1,11 @@
+<%= simple_form_for(article_content_datum, url: public_article_content_data_path(article, article_content_datum)) do |f| %>
+  <div class="card-body">
+    <%= f.error_notification %>
+    <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+    <%= f.input :summary, placeholder: '商品説明を入力してください' %>
+    <%= f.input :price %>
+  </div>
+  <div class="card-footer">
+    <%= f.submit class: 'btn btn-submit' %>
+  </div>
+<% end %>

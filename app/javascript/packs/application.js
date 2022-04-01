@@ -1,5 +1,4 @@
 require("jquery")
-require("jquery.turbolinks")
 require("turbolinks")
 require("@rails/ujs").start()
 require("@rails/activestorage").start()

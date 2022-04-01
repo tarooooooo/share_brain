@@ -1,7 +1,8 @@
-class Public::ArticlesController < ::Public::BaseController
+
+class ::Public::Mypage::ArticleController < ::Public::Mypage::BaseController
   before_action :authenticate_user!
   before_action :set_article, only: [:show, :edit, :update, :destroy]
-  before_action :check_authorize
+  # before_action :check_authorize
 
   def index
     @articles = Article.all

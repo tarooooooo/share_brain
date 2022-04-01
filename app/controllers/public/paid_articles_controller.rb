@@ -52,7 +52,6 @@ class Public::PaidArticlesController < ::Public::BaseController
       :published_at,
       :price,
       :publish_status,
-      :main_image,
       :attachment_file
     )
   end

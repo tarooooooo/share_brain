@@ -15,7 +15,11 @@ end
 namespace :public, path: '/' do
   root 'top_page#show'
 
-  resources :articles
+  resources :articles do
+    scope module: :articles do
+      resource :content_data, only: [:new, :create, :edit, :update]
+    end
+  end
   resources :paid_articles do
     scope module: :paid_articles do
       resource :content
@@ -23,12 +27,12 @@ namespace :public, path: '/' do
     resources :paid_article_orders do
       collection do
         post :confirm
-        get :done
       end
     end
   end
 
   namespace :mypage do
     root 'top_page#show'
+    resources :article, only: [:new]
   end
 end

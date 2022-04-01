@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_03_08_215642) do
+ActiveRecord::Schema.define(version: 2022_03_27_133740) do
 
   create_table "admin_users", charset: "utf8", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -46,9 +46,10 @@ ActiveRecord::Schema.define(version: 2022_03_08_215642) do
   create_table "articles", charset: "utf8", force: :cascade do |t|
     t.bigint "writer_id", null: false, comment: "ユーザーID"
     t.string "title", null: false
-    t.text "content", null: false
+    t.text "body", null: false
     t.datetime "published_at"
     t.integer "publish_status", default: 0, null: false
+    t.integer "status", default: 0, null: false, comment: "種別： {\"無料\"=>0, \"有料\"=>1}"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.datetime "deleted_at"
@@ -74,10 +75,12 @@ ActiveRecord::Schema.define(version: 2022_03_08_215642) do
 
   create_table "paid_article_orders", charset: "utf8", force: :cascade do |t|
     t.bigint "buyer_id", null: false
-    t.bigint "paid_article_id", null: false
+    t.bigint "article_id", comment: "記事ID"
+    t.bigint "paid_article_id"
     t.integer "payment_method", default: 0, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["article_id"], name: "index_paid_article_orders_on_article_id"
     t.index ["buyer_id"], name: "index_paid_article_orders_on_buyer_id"
     t.index ["paid_article_id"], name: "index_paid_article_orders_on_paid_article_id"
   end
@@ -100,7 +103,6 @@ ActiveRecord::Schema.define(version: 2022_03_08_215642) do
     t.integer "price", default: 0, null: false
     t.datetime "published_at"
     t.integer "publish_status", default: 0, null: false
-    t.string "main_image", default: "0", null: false
     t.string "attachment_file", default: "0"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -130,6 +132,7 @@ ActiveRecord::Schema.define(version: 2022_03_08_215642) do
   add_foreign_key "article_knowledge_tags", "knowledge_tags"
   add_foreign_key "articles", "users", column: "writer_id"
   add_foreign_key "paid_article_contents", "paid_articles"
+  add_foreign_key "paid_article_orders", "articles"
   add_foreign_key "paid_article_orders", "paid_articles"
   add_foreign_key "paid_article_orders", "users", column: "buyer_id"
   add_foreign_key "paid_article_sales", "paid_article_orders"
