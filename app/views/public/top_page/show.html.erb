@@ -1,3 +1,13 @@
+<div id="loading">
+  <div id="loading_box">
+    <p>
+      <i class="fas fa-circle-notch fa-spin loading_animation" style="color: cornflowerblue"></i>
+    </p>
+  </div>
+</div>
+<div class="start">
+  <p><%= image_tag 'top_page/sharebrain.png', alt: 'logo' %></p>
+</div>
 <div class="top_image">
   <div class="text_box">
 
@@ -8,6 +18,22 @@
       記事・教材投稿サービス
     </p>
     <%= link_to "教材を見る" , public_paid_articles_path , class:"btn btn-primary" %>
+  </div>
+</div>
+<div class="article_create_modal text-center">
+  <div class="content">
+    <a class="js-modal-open btn btn-info" href="">記事を作成する</a>
+  </div>
+  <div class="js-modal">
+    <div class="js_modal_bg js-modal-close"></div>
+    <div class="modal_content">
+      <p>作成する記事タイプを選んでください</p>
+      <div class="btn-box my-5">
+        <%= link_to "有料", new_public_paid_article_path, class: 'btn btn-success' %>
+        <%= link_to "無料", new_public_paid_article_path, class:"btn btn-primary" %>
+      </div>
+      <a class="js-modal-close" href="">閉じる</a>
+    </div>
   </div>
 </div>
 <div class="top-page-container container-fluid">
