@@ -5,6 +5,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :confirmable
 
+  has_one :block_user_information
   has_many :articles, dependent: :restrict_with_error, foreign_key: :writer_id, inverse_of: :writer
   has_many :paid_articles, dependent: :restrict_with_error, foreign_key: :seller_id, inverse_of: :seller
   has_many :paid_article_orders, dependent: :restrict_with_error, foreign_key: :buyer_id, inverse_of: :buyer

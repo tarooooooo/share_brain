@@ -12,9 +12,15 @@ class Public::PaidArticleOrdersController < ::Public::BaseController
   end
 
   def create
-    render :new and return if params[:payment_method]
-    ::PaidArticleOrders::CreateWorkflow.run!(paid_article_order: @paid_article_order)
-    redirect_to done_public_paid_article_paid_article_orders_path(paid_article_id: @paid_article.id)
+    if @paid_article_order.present?
+      ::PaidArticleOrders::CreateWorkflow.run!(paid_article_order: @paid_article_order)
+      redirect_to public_paid_article_path(@paid_article)
+    else
+      ::ArticleOrders::CreateWorkflow.run!(paid_article_order: @article_order)
+      redirect_to public_article_path(@article)
+    end
+
+    NotificationMailer.send_mail(current_user, @article).deliver_later
 
   rescue StandardError => e
     redirect_to public_paid_article_path, alert: e.message
