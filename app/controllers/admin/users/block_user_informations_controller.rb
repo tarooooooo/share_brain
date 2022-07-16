@@ -5,6 +5,9 @@ module Admin
 
       def create
         ::Users::Block::CompleteWorkflow.run!(user: @user)
+        redirect_to admin_users_path, notice: "ID:#{user.id}, 名前:#{user.name}をブロックしました"
+      rescue => e
+        # フラッシュメッセージをここで出す処理を入れる
       end
 
       private
