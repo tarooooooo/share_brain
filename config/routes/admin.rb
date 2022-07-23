@@ -9,7 +9,12 @@ namespace :admin do
 
   resources :admin_users
   resources :knowledge_tags
-  resources :users
+  resources :users do
+    scope module: :users do
+      resource :block_user_informations, only: [:create]
+      resource :unblocks, only: [:update]
+    end
+  end
   resources :paid_articles
   resources :articles
   resources :paid_article_orders
