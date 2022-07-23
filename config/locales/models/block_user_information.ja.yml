@@ -1,0 +1,13 @@
+---
+ja:
+  activerecord:
+    models:
+      block_user_information: 記事
+    attributes:
+      block_user_information:
+        status: ステータス
+  enums:
+    block_user_information:
+      status:
+        blocked: ブロック
+        unblocked: 非ブロック
