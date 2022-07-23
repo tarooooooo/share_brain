@@ -4,7 +4,12 @@ module Admin
       before_action :set_user
 
       def create
-        ::Users::Block::CompleteWorkflow.run!(user: @user)
+        if @user.block_user_information.present?
+          @block_user_information = @user.block_user_information
+          ::Users::Block::ReCompleteWorkflow.run!(block_user_information: @block_user_information)
+        else
+          ::Users::Block::CompleteWorkflow.run!(user: @user)
+        end
         redirect_to admin_users_path, notice: "ID:#{user.id}, 名前:#{user.name}をブロックしました"
       rescue => e
         # フラッシュメッセージをここで出す処理を入れる

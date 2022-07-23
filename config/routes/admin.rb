@@ -12,6 +12,7 @@ namespace :admin do
   resources :users do
     scope module: :users do
       resource :block_user_informations, only: [:create]
+      resource :unblocks, only: [:update]
     end
   end
   resources :paid_articles
