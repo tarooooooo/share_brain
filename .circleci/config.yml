@@ -1,7 +1,6 @@
 version: 2.1
 
 orbs:
-  ruby: circleci/ruby@1.1.2
   heroku: circleci/heroku@1.2.3
 
 jobs:
@@ -58,6 +57,29 @@ jobs:
           name: database setup
           command: heroku run bundle exec rake db:migrate RAILS_ENV=production -a $HEROKU_APP_NAME
 
+      - store_test_results:
+          path: /tmp/test-results
+      - store_artifacts:
+          path: /tmp/test-results
+          destination: test-results
+
+  deploy:
+    executor: heroku/default
+    parameters:
+      env:
+        type: enum
+        enum: [ "staging", "production" ]
+      heroku_app_name:
+        type: string
+    steps:
+      - checkout
+      - heroku/install
+      - heroku/deploy-via-git:
+          force: true
+    environment:
+      - RAILS_ENV: production
+      - HEROKU_APP_NAME: sharebrain-rtr
+
 workflows:
   build_and_deploy:
     jobs:
@@ -65,6 +87,9 @@ workflows:
       - deploy:
           requires:
             - build
+          name: deploy_staging
+          env: staging
+          heroku_app_name: sharebrain-rtr
           filters:
             branches:
-              only: dev
+              only: [dev, main]
