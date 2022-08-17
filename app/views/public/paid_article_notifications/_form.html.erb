@@ -1,0 +1,7 @@
+<%= form_with model: [:public, paid_article_notification], method: :post, local: true do |f| %>
+  <%= f.text_field :title %>
+  <%= f.text_area :body %>
+  <%= f.datetime_field :published_at %>
+  <%= f.collection_select :paid_article_id, paid_articles, :id, :title, prompt: true %>
+  <%= f.submit 'お知らせ作成', class: '' %>
+<% end %>
