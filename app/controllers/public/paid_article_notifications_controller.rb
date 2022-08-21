@@ -25,6 +25,7 @@ class Public::PaidArticleNotificationsController < ApplicationController
   def show; end
 
   def index
+    @paid_article_notifications = current_user.paid_article_notifications
   end
 
   def destroy
