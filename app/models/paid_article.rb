@@ -4,8 +4,9 @@ class PaidArticle < ApplicationRecord
   mount_uploader :attachment_file, PaidArticleAttachmentFileUploader
 
   belongs_to :seller, class_name: 'User'
-  has_one :notification, class_name: 'PaidArticleNotification', dependent: :destroy
+  has_many :paid_article_notifications, dependent: :destroy
   has_one :content, class_name: 'PaidArticleContent', dependent: :destroy
+  has_many :paid_article_orders
 
   enum publish_status: {
     draft: 0,
