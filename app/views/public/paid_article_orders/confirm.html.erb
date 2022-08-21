@@ -13,6 +13,7 @@
           <%= form_with model: [:public, @paid_article, @paid_article_order], method: :post, local: true do |f| %>
             <%= f.hidden_field :payment_method %>
             <%= f.submit '修正する', name: :payment_method, class: 'btn btn-info' %>
+            <%= f.hidden_field :order_type, value: "paid_article_order" %>
             <%= f.submit '購入確定', class: 'btn btn-danger' %>
           <% end %>
         </div>
@@ -34,6 +35,7 @@
           <%= form_with url: public_paid_article_paid_article_orders_path, method: :post, local: true do |f| %>
             <%= f.hidden_field :payment_method %>
             <%= f.submit '修正する', name: :payment_method, class: 'btn btn-info' %>
+            <%= f.hidden_field :order_type, value: "article_order" %>
             <%= f.submit '購入確定', class: 'btn btn-danger' %>
           <% end %>
         </div>
