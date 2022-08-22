@@ -3,18 +3,18 @@ class ::Public::Mypage::PaidArticleNotificationsController < ::Public::Mypage::B
   before_action :set_paid_article_notification, only: [:show]
 
   def index
-    # @paid_articles = current_user.paid_article_orders.pluck(:paid_article)
-    # @paid_articles = current_user.paid_article_orders.map {|paid_article_order| paid_article_order.paid_article }
-    @paid_articles = PaidArticle.joins(:paid_article_orders).where(paid_article_orders: {buyer_id: current_user.id})
-    @paid_article_notifications = []
-    @paid_articles.each do |paid_article|
-      paid_article.paid_article_notifications.each do |notification|
-        if notification.published_at >= Time.current
-          @paid_article_notifications.push(notification)
-        end
-      end
-    end
-    # @paid_article_notifications.where(published_at: ..Time.current )
+    # 学習用に、自分の実装をコメントとして残す
+    # @paid_articles = PaidArticle.joins(:paid_article_orders).where(paid_article_orders: {buyer: current_user})
+    # @paid_article_notifications = []
+    # @paid_articles.each do |paid_article|
+    #   paid_article.paid_article_notifications.each do |notification|
+    #     if notification.published_at >= Time.current
+    #       @paid_article_notifications.push(notification)
+    #     end
+    #   end
+    # end
+    paid_article_ids = PaidArticle.joins(:paid_article_orders).where(paid_article_orders: {buyer_id: current_user.id}).ids
+    @paid_article_notifications = PaidArticleNotification.published.joins(:paid_article).where(paid_articles: { id: paid_article_ids}).order(published_at: :desc)
   end
 
   def show
