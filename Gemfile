@@ -33,6 +33,8 @@ group :development, :test do
   gem 'pry-doc'
   gem 'rspec-rails'
   gem 'rspec_junit_formatter'
+  gem 'factory_bot_rails', '5.2.0'
+  gem 'database_cleaner'
 end
 
 group :development do

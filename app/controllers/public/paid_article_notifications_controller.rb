@@ -1,4 +1,4 @@
-class Public::PaidArticleNotificationsController < ApplicationController
+class Public::PaidArticleNotificationsController < ::Public::Mypage::BaseController
   before_action :set_paid_article_notification, only: [:show, :edit, :update, :destroy]
 
   def new

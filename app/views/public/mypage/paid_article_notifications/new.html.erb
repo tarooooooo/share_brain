@@ -1,0 +1,15 @@
+<%= render 'public/mypage/paid_article_notifications/form', paid_article_notification: @paid_article_notification, paid_articles: @paid_articles %>
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <% @paid_article_notifications.each do |paid_article_notification| %>
+        <div class="card">
+          <%= link_to [:public, :mypage, paid_article_notification] do %>
+            <p><%= paid_article_notification.title %></p>
+            <p><%= paid_article_notification.body %></p>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

@@ -110,6 +110,12 @@ GEM
     coderay (1.1.3)
     concurrent-ruby (1.1.9)
     crass (1.0.6)
+    database_cleaner (2.0.1)
+      database_cleaner-active_record (~> 2.0.0)
+    database_cleaner-active_record (2.0.1)
+      activerecord (>= 5.a)
+      database_cleaner-core (~> 2.0.0)
+    database_cleaner-core (2.0.1)
     declarative-builder (0.1.0)
       declarative-option (< 0.2.0)
     declarative-option (0.1.0)
@@ -127,6 +133,11 @@ GEM
     erbse (0.1.4)
       temple
     erubi (1.10.0)
+    factory_bot (5.2.0)
+      activesupport (>= 4.2.0)
+    factory_bot_rails (5.2.0)
+      factory_bot (~> 5.2.0)
+      railties (>= 4.2.0)
     ffi (1.15.5)
     globalid (1.0.0)
       activesupport (>= 5.0)
@@ -331,9 +342,11 @@ DEPENDENCIES
   cells-rails
   cells-slim
   coderay
+  database_cleaner
   devise
   devise-i18n
   enum_help
+  factory_bot_rails (= 5.2.0)
   jbuilder (~> 2.7)
   jquery-rails
   jquery-turbolinks
