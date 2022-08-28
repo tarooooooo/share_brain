@@ -1,7 +1,21 @@
-<%= form_with model: [:public, paid_article_notification], method: :post, local: true do |f| %>
-  <%= f.text_field :title %>
-  <%= f.text_area :body %>
-  <%= f.datetime_field :published_at %>
-  <%= f.collection_select :paid_article_id, paid_articles, :id, :title, prompt: true %>
-  <%= f.submit 'お知らせ作成', class: '' %>
-<% end %>
+<div class="form_box bg-white p-4">
+  <div class="form-group">
+    <%= f.label :title %>
+    <%= f.text_field :title, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :body %>
+    <%= f.text_area :body, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :published_at %>
+    <%= f.datetime_field :published_at, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :paid_article %>
+    <%= f.collection_select :paid_article_id, paid_articles, :id, :title, { prompt: '選択してください' }, class:"form-select" %>
+  </div>
+  <p class="mt-2">
+    <%= f.submit '保存', class: 'btn btn-primary' %>
+  </p>
+</div>

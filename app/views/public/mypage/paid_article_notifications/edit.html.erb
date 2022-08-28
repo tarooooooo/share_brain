@@ -1,0 +1,3 @@
+<%= form_with model: @paid_article_notification, url: public_mypage_paid_article_notification_path(@paid_article_notification), method: :patch, local: true do |f| %>
+  <%= render 'public/mypage/paid_article_notifications/form', paid_articles: @paid_articles, f: f %>
+<% end %>

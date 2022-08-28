@@ -11,17 +11,26 @@ class ::Public::Mypage::PaidArticleNotificationsController < ::Public::Mypage::B
   def create
     @paid_article_notification = PaidArticleNotification.new(paid_article_notification_params)
     @paid_article_notification.writer = current_user
-    if @paid_article_notification.save!
+    if @paid_article_notification.save
       redirect_to new_public_mypage_paid_article_notification_path, notice: 'お知らせを作成しました'
     else
+      @paid_articles = current_user.paid_articles
+      @paid_article_notifications = current_user.paid_article_notifications
       render :new
     end
   end
 
   def edit
+    @paid_articles = current_user.paid_articles
   end
 
   def update
+    if @paid_article_notification.update(paid_article_notification_params)
+      redirect_to new_public_mypage_paid_article_notification_path, notice: 'お知らせを更新しました'
+    else
+      @paid_articles = current_user.paid_articles
+      render :edit
+    end
   end
 
   def index
@@ -44,6 +53,8 @@ class ::Public::Mypage::PaidArticleNotificationsController < ::Public::Mypage::B
   end
 
   def destroy
+    @paid_article_notification.destroy!
+    redirect_to new_public_mypage_paid_article_notification_path, notice: 'お知らせを削除しました'
   end
 
   private

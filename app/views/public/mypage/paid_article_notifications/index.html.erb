@@ -3,10 +3,10 @@
     <div class="col">
       <% @paid_article_notifications.each do |paid_article_notification| %>
         <div class="card">
-          <%= link_to [:public, :mypage, paid_article_notification] do %>
+            <p><%= paid_article_notification.published_at.strftime("%Y/%-m/%-d") %></p>
+            <p>商品名: <%= paid_article_notification.paid_article.title %></p>
             <p><%= paid_article_notification.title %></p>
-            <p><%= paid_article_notification.body %></p>
-          <% end %>
+          <%= link_to '詳しくはこちら', [:public, :mypage, paid_article_notification] %>
         </div>
       <% end %>
     </div>
