@@ -5,7 +5,8 @@ class ::Public::Mypage::PaidArticleNotificationsController < ::Public::Mypage::B
   def new
     @paid_article_notification = PaidArticleNotification.new
     @paid_articles = current_user.paid_articles
-    @paid_article_notifications = current_user.paid_article_notifications
+    @published_paid_article_notifications = current_user.paid_article_notifications.published.order(published_at: :asc)
+    @pre_publication_paid_article_notifications = current_user.paid_article_notifications.pre_publication.order(published_at: :desc)
   end
 
   def create
