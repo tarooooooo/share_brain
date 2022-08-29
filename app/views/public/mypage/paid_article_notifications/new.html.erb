@@ -1,0 +1,50 @@
+<div class="container">
+  <div class="row">
+    <div class="form mb-3">
+      <%= form_with model: @paid_article_notification, url: public_mypage_paid_article_notifications_path, method: :post, local: true do |f| %>
+        <%= render 'public/mypage/paid_article_notifications/form', paid_articles: @paid_articles, f: f %>
+      <% end %>
+    </div>
+  </div>
+  <div class="row">
+    <h2>お知らせ一覧</h2>
+    <div class="col">
+      <h3>公開済み</h3>
+      <% @published_paid_article_notifications.each do |paid_article_notification| %>
+        <div class="card">
+          <div class="d-flex justify-content-between">
+            <div class="left_box">
+              <p>商品名:<%= paid_article_notification.paid_article.title %></p>
+              <p>タイトル：<%= paid_article_notification.title %></p>
+              <p>公開日時：<%= paid_article_notification.published_at.strftime("%Y年%-m月%-d日 %-H時%-M分%-S秒") %></p>
+            </div>
+            <div class="right-box">
+              <p><%= link_to '編集', edit_public_mypage_paid_article_notification_path(paid_article_notification), class: 'btn btn-secondary' %></p>
+              <p><%= link_to '削除', public_mypage_paid_article_notification_path(paid_article_notification), method: :delete, data: { confirm: '本当に削除して良いですか?'}, class: 'btn btn-danger' %></p>
+              <p><%= link_to '詳細',  public_mypage_paid_article_notification_path(paid_article_notification), class: 'btn btn-light' %></p>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+    <div class="col">
+      <h3>公開前</h3>
+      <% @pre_publication_paid_article_notifications.each do |paid_article_notification| %>
+        <div class="card">
+          <div class="d-flex justify-content-between">
+            <div class="left_box">
+              <p>商品名:<%= paid_article_notification.paid_article.title %></p>
+              <p>タイトル：<%= paid_article_notification.title %></p>
+              <p>公開日時：<%= paid_article_notification.published_at.strftime("%Y年%-m月%-d日 %-H時%-M分%-S秒") %></p>
+            </div>
+            <div class="right-box">
+              <p><%= link_to '編集', edit_public_mypage_paid_article_notification_path(paid_article_notification), class: 'btn btn-secondary' %></p>
+              <p><%= link_to '削除', public_mypage_paid_article_notification_path(paid_article_notification), method: :delete, data: { confirm: '本当に削除して良いですか?'}, class: 'btn btn-danger' %></p>
+              <p><%= link_to '詳細',  public_mypage_paid_article_notification_path(paid_article_notification), class: 'btn btn-light' %></p>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

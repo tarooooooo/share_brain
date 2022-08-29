@@ -73,7 +73,19 @@ ActiveRecord::Schema.define(version: 2022_03_27_133740) do
     t.index ["paid_article_id"], name: "index_paid_article_contents_on_paid_article_id", unique: true
   end
 
-  create_table "paid_article_orders", charset: "utf8", force: :cascade do |t|
+  create_table "paid_article_notifications", charset: "utf8mb4", force: :cascade do |t|
+    t.string "title", null: false
+    t.text "body", null: false
+    t.bigint "writer_id", null: false
+    t.bigint "paid_article_id", null: false
+    t.datetime "published_at", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["paid_article_id"], name: "index_paid_article_notifications_on_paid_article_id"
+    t.index ["writer_id"], name: "index_paid_article_notifications_on_writer_id"
+  end
+
+  create_table "paid_article_orders", charset: "utf8mb4", force: :cascade do |t|
     t.bigint "buyer_id", null: false
     t.bigint "article_id", comment: "記事ID"
     t.bigint "paid_article_id"

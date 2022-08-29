@@ -34,5 +34,6 @@ namespace :public, path: '/' do
   namespace :mypage do
     root 'top_page#show'
     resources :article, only: [:new]
+    resources :paid_article_notifications
   end
 end
