@@ -16,7 +16,8 @@ class ::Public::Mypage::PaidArticleNotificationsController < ::Public::Mypage::B
       redirect_to new_public_mypage_paid_article_notification_path, notice: 'お知らせを作成しました'
     else
       @paid_articles = current_user.paid_articles
-      @paid_article_notifications = current_user.paid_article_notifications
+      @published_paid_article_notifications = current_user.paid_article_notifications.published.order(published_at: :asc)
+      @pre_publication_paid_article_notifications = current_user.paid_article_notifications.pre_publication.order(published_at: :desc)
       render :new
     end
   end
