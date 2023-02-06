@@ -23,7 +23,9 @@
       <div class="container">
         <div class="d-flex flex-nowrap row">
           <%= render 'public/mypage/shared/sidebar' %>
-          <%= yield %>
+          <div class="col-md-8">
+            <%= yield %>
+          </div>
         </div>
       </div>
     </div>

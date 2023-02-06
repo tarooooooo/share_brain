@@ -15,6 +15,7 @@
     li {
       border-top: 1px solid silver;
       padding: 15px 0;
+      position: relative;
 
       &:last-child {
         border-bottom: 1px solid silver;
@@ -22,6 +23,21 @@
 
       .faq_list_question {
         cursor: pointer;
+      }
+      .faq_list_question p::after,
+      .faq_list_question.open p::after {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        margin: auto;
+      }
+      .faq_list_question p::after {
+        content: "▲"
+
+      }
+      .faq_list_question.open p::after {
+        content: '▼'
       }
 
       .faq_list_answer {
@@ -124,4 +140,84 @@
     font-size: 30px;
     color: white;
   }
+}
+
+//モーダル関連
+.article_create_modal {
+  position: relative;
+  .content {
+    margin-top: 20px;
+    .js-modal-open {
+      color: white;
+    }
+  }
+  .js-modal {
+    display: none;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 99999;
+  }
+  .js_modal_bg {
+    background:rgba(0,0,0,0.7);
+    height: 100vh;
+    position: absolute;
+    width: 100%;
+  }
+  .modal_content {
+    background-color: white;
+    left: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 50%;
+    height: 300px;
+    padding: 50px;
+  }
+}
+
+//スタート
+.start {
+  background-color: white;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 9990;
+}
+.start p {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  display: none;
+  z-index: 9999;
+  width: 500px;
+}
+
+//ローディング
+#loading {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  z-index: 99999;
+  width: 100%;
+  height: 100vh;
+  background: white;
+}
+
+#loading_box {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  text-align: center;
+}
+
+.loading_animation {
+  font-size: 10em;
 }
